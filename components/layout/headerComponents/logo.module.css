@@ -1,0 +1,198 @@
+/* .bottomLineTriangle{
+    width: 5em;
+    border: solid 1px rgb(19, 19, 19);
+    position: absolute;
+    margin-left: 1em;
+    transform: translate(.2em,5em)
+}
+
+
+
+.leftLineTriangle{
+    width: 5em;
+    border: solid 1px rgb(0, 0, 0);
+    position: absolute;
+    margin-left: 1.5em;
+    transform: rotate(-60deg) translate(-3.2em) 
+}
+
+.rightLineTriangle{
+    width: 5em;
+    border: solid 1px;
+    position: absolute;
+    margin-left: .9em;
+    transform: rotate(60deg) translate(3.2em)
+}
+
+.leftLineInnerTriangle{
+    width: 4.3em;
+    border: solid 1px;
+    position: absolute;
+    margin-left: 2.2em;
+    transform: rotate(-60deg) translate(-3.55em)
+}
+.rightLineInnerTriangle{
+    width: 4.3em;
+    border: solid 1px;
+    position: absolute;
+    margin-left: .9em;
+    transform: rotate(60deg) translate(3.55em)
+}
+
+
+.circle{
+    height: 2em;
+    width: 1.5em;
+    position: absolute;
+    border: solid 2px;
+    border-radius: 2em;
+    transform: translate(2.85em, 2.3em)
+}
+
+
+.horizontal{
+    
+    position: absolute;
+    border: solid  2px;
+    width: 1.9em;
+    transform: translate(-.3em, .8em)
+}
+
+.vertical{
+    position: absolute;
+    border: solid  2px;
+    width: 2.5em;
+    transform: translate(-.6em, .8em) rotate(90deg)
+} */
+
+/* .underLogo:hover{
+    cursor: pointer;
+    background-color: red;
+    width: 3em;
+    margin-left: 3em;
+    height: 2em;
+}
+
+.I{
+    margin-left:2em;
+    margin-top:1em;
+    position: absolute;
+}
+    
+.E{
+    margin-left:2em;
+    margin-top:1em;
+    position: absolute;
+}
+.S{
+    margin-left: 2em;
+    margin-top: 1em;
+    position: absolute;
+}
+/* .I:hover{animation: iMove 2s forwards;
+color: red;
+cursor: pointer;
+} */
+
+@keyframes iMove {
+    0%{translate: 0px}
+    100%{translate: -2em}
+} 
+
+
+/* .vertical{
+    height: 3em;
+    width: 2px;
+    border: solid .2em;
+    margin-left: 2em;
+    margin-top: 1em;
+    position: absolute;
+} */
+
+
+.vertical{
+    position: absolute;
+    border: solid 2px;
+    height: 3em;
+    margin-left:2em;
+    margin-top:1em;
+}
+.horizontalBottom{
+    position: absolute;
+    border: solid 2px;
+    height: 1em;
+    margin-left:2.5em;
+    margin-top:4.1em;
+    transform: rotate(90deg); 
+    color:rgb(5, 67, 114)
+}
+.horizontalTop{
+    position: absolute;
+    border: solid 2px;
+    height: 1em;
+    margin-left:1.5em;
+    margin-top:-.2em;
+    transform: rotate(90deg); 
+}
+.horizontalMiddle{
+    position: absolute;
+    border: solid 2px;
+    height: .5em;
+    margin-left:2.5em;
+    margin-top:2.1em;
+    transform: rotate(90deg); 
+}
+
+
+.topCurve{
+    position: absolute;
+    height: 1em;
+    width: 1em;
+    border: solid 4px;
+    border-radius: 150px 150px 0 0;
+    border-bottom: 0;  
+    margin-left:2em;
+}
+.bottomCurve{
+    position: absolute;
+    height: 1em;
+    width: 1em;
+    border: solid 4px;
+    border-radius: 0 0  150px 150px;
+    border-top: 0;
+    margin-left:.75em;
+    margin-top: 3.8em
+}
+.marginPastLogo{
+    margin-left: 4em;
+    line-height:.8;
+    font-weight:bold;
+}
+/* 
+
+
+.marginPastLogoTitle{
+    margin-left: 13em;
+    
+    transform: translateY(-.9em);
+}
+
+.services{
+    transform: translate(5.75em, -2em);
+}
+.account{
+    transform: translate(5em, -2em);
+}
+
+.marginPastServices{
+    margin-left: 30em; 
+
+}
+
+.marginPastLogoAccount{
+    left: 5em;
+    position: relative;
+    transform: translateY(-.9em);
+}
+
+ */
