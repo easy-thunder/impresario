@@ -1,0 +1,147 @@
+/* 
+
+
+
+
+
+
+.whoWeAre{
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+    grid-template-columns: 1fr 1fr;
+}
+
+
+.bringItDown{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10em;
+    transform: translate(0, 8em);
+    justify-content: center;
+}
+
+.middle{
+    transform: translate(50%);
+    justify-content: center;
+    margin-left: auto;
+    
+    .landingImage{
+        min-height: 100vh;
+        background-image: linear-gradient(rgba(188, 199, 236, 0.804), rgba(97, 93, 86, 0.962))
+        ;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        position:initial;
+        background-position: center;
+        background-size: cover;
+    }
+    margin-right: 6em;
+}
+
+
+.educate{
+    grid-template-columns: span 2;
+    border: solid Red
+}
+
+
+.creationServicesDiv{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1fr;
+}
+
+
+ */
+
+ 
+.educationSection{
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 3em;
+}
+.frame{
+    width: 30vw;
+    height: 20vw;
+    border: solid white;
+}
+
+.grid100{
+    display: grid;
+    grid-template-rows: repeat(5, 20vh);
+    grid-template-columns: repeat(5, 20vw);
+    grid-template-areas: 
+    'mainAttraction mainAttraction mainAttraction mainAttraction mainAttraction'
+    'mainAttraction mainAttraction mainAttraction mainAttraction mainAttraction'
+    'mainAttraction mainAttraction mainAttraction mainAttraction mainAttraction'
+    'mainAttraction mainAttraction mainAttraction mainAttraction mainAttraction'
+    'leftDetails leftDetails details rightDetails rightDetails'
+    
+    ;
+}
+
+
+.header{
+    grid-area: header;
+    background-image: radial-gradient(rgba(246, 246, 246, 0.804), rgba(0, 94, 246, 0.962));
+}
+
+
+
+.marginRight{
+    margin-left:25%
+}
+.marginRightSome{
+    margin-left: 20%
+}
+
+.mainAttraction{
+grid-area: mainAttraction;
+background-image: radial-gradient(rgba(246, 246, 246, 0), rgba(0, 94, 246, 0)), url(../public/images/vincentiu-solomon-fYtSWs7LQuQ-unsplash.jpg)
+;
+background-size: cover;
+background-position: center;
+width: 100%;
+}
+
+
+
+
+
+
+.leftDetails{
+    grid-area: leftDetails;
+    margin-left: 10vw;
+}
+
+
+.downFifth{
+    /* transform: translate(0,20vh); */
+}
+
+.rightDetails{
+    grid-area: rightDetails;
+    margin-left: 10vw;
+}
+.details{
+    grid-area: details;
+    background-color: white;
+}
+
+
+
+.upTenth{
+    /* transform: translate(0,-5vh); */
+}
+
+
+.center{
+    transform: translate(25vw, 20vh);
+
+}
+.centerLess{
+    transform: translate(22vw, 20vh)
+}

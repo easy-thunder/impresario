@@ -2,11 +2,18 @@
 .header{
     height:  auto;
     width: auto;
-    background-color: rgba(87, 208, 71, 0.133);
+    background-color: rgba(175, 173, 214, 0.362);
+    display: flex;
     justify-content: center;
     flex-wrap: wrap ;
+    position: fixed;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px;
 }
-
 
 
 

@@ -165,34 +165,43 @@ cursor: pointer;
 }
 .marginPastLogo{
     margin-left: 4em;
-    line-height:.8;
+    line-height:.2;
     font-weight:bold;
 }
-/* 
-
-
 .marginPastLogoTitle{
-    margin-left: 13em;
-    
-    transform: translateY(-.9em);
+    margin-left: 4em;
+    line-height: .2;
+    /* white-space:break-spaces; */
+    /* transform: translateY(-.9em); */
 }
-
 .services{
-    transform: translate(5.75em, -2em);
+
+    transform: translate(2em, 1em);
+    
 }
 .account{
-    transform: translate(5em, -2em);
+    transform: translate(1em, 1em);
+    /* margin-left: 4em; */
 }
-
 .marginPastServices{
-    margin-left: 30em; 
-
+margin-left: 4em;
+line-height: .01em;
 }
-
 .marginPastLogoAccount{
     left: 5em;
     position: relative;
     transform: translateY(-.9em);
+    line-height: 1.4em;
 }
+.space{
+    height: 1em;
+    width: 1em;
+  }
+
+/* 
+
+
+
+
 
  */

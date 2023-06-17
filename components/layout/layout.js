@@ -10,7 +10,6 @@ export default function Layout(props){
         <MainHeader />
         <main>
             {props.children}
-            <p>test</p>
         </main>
         
         <Footer />

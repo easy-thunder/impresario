@@ -12,6 +12,44 @@
   font-size: 80%;
 } */
 
+
+/* CSS */
+.button-64 {
+  align-items: center;
+  background-image: linear-gradient(144deg,#AF40FF, #5B42F3 50%,#00DDEB);
+  border: 0;
+  border-radius: 8px;
+  box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  display: flex;
+  font-family: Phantomsans, sans-serif;
+  font-size: 20px;
+  justify-content: center;
+  line-height: 1em;
+  max-width: 100%;
+  min-width: 140px;
+  max-height:2em;
+  padding: 3px;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+h3{max-width: 40ch;}
+
+
+@media (min-width: 768px) {
+  .button-64 {
+    font-size: 24px;
+    min-width: 196px;
+  }
+}
+
+
 .flex{
   display: flex;
   flex-direction:row;
@@ -26,22 +64,27 @@
   height: 2em;
   width: 2em;
   margin:auto;
-  padding: 5px
+  padding: 5px;
+  background-image: linear-gradient(144deg,#AF40FF, #5B42F3 50%,#00DDEB);
+  border-radius: 10px;
+  cursor: pointer;
 }
 
-.fixIcon{
-  height: 1.5em;
-  width: 1.5em;
-  margin:auto;
-  padding: 5px
+
+.right{
+  margin-right: 2em;
+  position: sticky
 }
 
 .blue{
-  color:rgba(0, 15, 222, 0.862)
+  color:rgb(104, 112, 218)
 }
 html {
 
   font-family: Georgia, 'Times New Roman', Times, serif;  
+}
+.slightlySmallerText{
+  font-size:small;
 }
 
 :root {
@@ -93,7 +136,24 @@ button{
   display: flexbox;
   flex-wrap: wrap;
 }
+.border{
+  border: red solid 
+}
 
+
+.whiteText{
+  color: rgb(255, 255, 255);
+}
+
+.transitionCenter{
+  transform: translate(43%);
+}
+
+.center{
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: center;
+}
 /* @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
@@ -127,11 +187,16 @@ button{
   }
 } */
 
-/* * {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-} */
+.drawAttention{
+  animation: flux 12s infinite;
+}
+
+@keyframes flux {
+ 0% {scale: 1;}
+ 50%{scale: 1; color: white;}
+ 75%{scale: 1.1; color: rgba(245, 177, 177, 0.786)}
+ 100%{scale: 1; color: white}
+}
 
 html,
 body {
@@ -160,5 +225,21 @@ a {
   }
 } 
 
+body{
+  background-image:
+  linear-gradient(
+    rgb(10, 25, 60),
+    black
+
+  )
+}
 
 
+
+.justCenter{
+  justify-content: center;
+}
+
+.smaller{
+  font-size: small;
+}

@@ -1,10 +1,22 @@
 import Head from 'next/head'
 import Image from 'next/image'
-import { Inter } from 'next/font/google'
+import { Fascinate_Inline, Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
-
+// import image from "../public/images/cherrydeck-rMILC1PIwM0-unsplash (1).jpg"
+import classes from "./home.module.css"
+import Link from 'next/link'
+import { Fragment, useState } from 'react'
+import Landing from '@/components/homepage/landing'
+import Education from '@/components/homepage/Education'
 
 export default function Home() {
+
+
+
+// I can't tell you how many times I changed the css and complete layout
+
+
+
   return (
     <>
       <Head>
@@ -14,8 +26,15 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
+      <Landing /> 
+      <Education />
+      <Fragment>
+        <h2 className='transitionCenter whiteText'>About Impresario</h2>
+        <div>
+          
+        </div>
+      </Fragment>
 
-      
       </main>
     </>
   )
