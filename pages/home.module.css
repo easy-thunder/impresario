@@ -57,6 +57,7 @@
 
  
 .educationSection{
+    margin-left: 1%;
     width: 100%;
     height: 100%;
     display: grid;
@@ -64,7 +65,7 @@
     column-gap: 3em;
 }
 .frame{
-    width: 30vw;
+    width: 28vw;
     height: 20vw;
     border: solid white;
 }
@@ -101,6 +102,7 @@
 .mainAttraction{
 grid-area: mainAttraction;
 background-image: radial-gradient(rgba(246, 246, 246, 0), rgba(0, 94, 246, 0)), url(../public/images/vincentiu-solomon-fYtSWs7LQuQ-unsplash.jpg)
+
 ;
 background-size: cover;
 background-position: center;
@@ -108,7 +110,17 @@ width: 100%;
 }
 
 
-
+.leftRight{
+    display: grid;
+    grid-template-columns: 1fr .1fr 1fr;
+    grid-template-rows:.1fr 1fr ;
+    grid-template-areas: 
+    'title title title'
+    'left middle right'
+    ;
+    gap: 1em;
+    margin-left: 1%;
+  }
 
 
 
@@ -130,7 +142,53 @@ width: 100%;
     grid-area: details;
     background-color: white;
 }
+.title{
+    grid-area: title;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+}
 
+.left{
+    grid-area: left;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+    text-align: center;
+    height: 25vw;
+    width: 40vw;
+    background-image: url(../public/images/jake\ fancy.jpg);
+    background-size: cover;
+    background-position: center;
+    border-radius: 20%;
+}
+.right{
+    grid-area: right;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40ch;
+
+}
+.lowerRight{
+    grid-area: right;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40ch;
+    background-image: url(../public/images/IMG_1309.jpg);
+    text-align: center;
+    height: 25vw;
+    width: 40vw;
+    background-size: cover;
+    background-position: center;
+    border-radius: 20%;
+}
+.lowerLeft{
+    grid-area: left;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+    width: 40ch;
+}
 
 
 .upTenth{

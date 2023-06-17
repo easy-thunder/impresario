@@ -146,7 +146,7 @@ button{
 }
 
 .transitionCenter{
-  transform: translate(43%);
+  transform: translate(44%);
 }
 
 .center{
@@ -228,7 +228,7 @@ a {
 body{
   background-image:
   linear-gradient(
-    rgb(10, 25, 60),
+    rgba(3,14,34,255),
     black
 
   )
@@ -243,3 +243,5 @@ body{
 .smaller{
   font-size: small;
 }
+
+

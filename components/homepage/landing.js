@@ -144,13 +144,15 @@ export default function Landing(){
     <div className={`${classes.leftDetails} ${classes.upTenth} whiteText`}>
         <h3 className={`${classes.marginRightSome}`}>Need a Site?</h3>
         <ul>
-            <li>Expert Designers listen to your vision</li>
-            <li>Get advice for what Content you need</li>
+            <li>Professional Designers listen to your vision</li>
             <li>We build your design with SEO in mind</li>
             <li>Hook your site up with google analytics</li>
             <li>Connect to your social media</li>
+            <li>Build now pay later</li>
             <li className="smaller">Builds start at $799.85</li>
         </ul>
+        <button className={classes.marginRightSome}>Build a Site</button>
+
         <div className={`${classes.details} `}></div>
     </div>
     <div className={`${classes.leftSide} whiteText`}></div>
@@ -158,12 +160,13 @@ export default function Landing(){
         <h3 className={`${classes.marginRightSome}`}>Have a site?</h3>
         <ul>
             <li>Know your traffic with google Analytics</li>
-            <li>Make small design changes to the site</li>
-            <li>Or make small keyword changes to your header and title</li>
+            <li>Make small design or keyword changes to the site</li>
+            <li>Or get a total rework</li>
             <li>Deploy both unedited and edited version with a split test</li>
             <li>Get results back and see your traffic explode! </li>
             <li className="smaller">Basic Plan starts at $49.99 a month</li>
         </ul>
+        <button className={classes.marginRightSome}>Site Management</button>
     </div>
 </div>
 
