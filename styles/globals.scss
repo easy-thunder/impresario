@@ -12,16 +12,44 @@
   font-size: 80%;
 } */
 
+button{
+  width: 90%;
+  margin: auto;
+  max-width: 22em;
+
+  position: relative;
+  padding: 2em;
+  box-sizing: border-box;
+
+  $border: 5px;
+  color: #FFF;
+  background: rgb(2, 9, 22);
+  background-clip: padding-box; /* !importanté */
+  border: solid $border transparent; /* !importanté */
+  border-radius: 1em;
+  cursor: pointer;
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+    z-index: -1;
+    margin: -$border; /* !importanté */
+    border-radius: 11%; /* !importanté */
+    background: linear-gradient(to right, rgba(172, 55, 86, 0.382),#a4a3ab88);
+  }
+
+}
 
 /* CSS */
 .button-64 {
   align-items: center;
-  background-image: linear-gradient(144deg,#AF40FF, #5B42F3 50%,#00DDEB);
-  border: 0;
+background-color: rgba(0, 0, 0, 0);
+  border: solid rgba(0, 0, 0, 0);
   border-radius: 8px;
-  box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
+  box-shadow: rgba(172,55,87,255) 0 15px 10px -5px;
   box-sizing: border-box;
-  color: #FFFFFF;
+  /* color: #FFFFFF; */
   display: flex;
   font-family: Phantomsans, sans-serif;
   font-size: 20px;
@@ -65,15 +93,16 @@ h3{max-width: 40ch;}
   width: 2em;
   margin:auto;
   padding: 5px;
-  background-image: linear-gradient(144deg,#AF40FF, #5B42F3 50%,#00DDEB);
+  /* background-image: linear-gradient(144deg,#AF40FF, #5B42F3 50%,#00DDEB); */
   border-radius: 10px;
   cursor: pointer;
 }
 
 
 .right{
-  margin-right: 2em;
-  position: sticky
+  position: absolute;
+  top: 1em;
+  right: 2em;
 }
 
 .blue{
@@ -129,9 +158,6 @@ html {
   --card-border-rgb: 131, 134, 135;
 }
 
-button{
-  cursor: pointer;
-}
 .flex-box{
   display: flexbox;
   flex-wrap: wrap;
@@ -142,8 +168,7 @@ button{
 
 
 .whiteText{
-  color: rgb(255, 255, 255);
-}
+  color:#afa4a1ec}
 
 .transitionCenter{
   transform: translate(44%);
@@ -152,6 +177,15 @@ button{
 .center{
   margin-left: auto;
   margin-right: auto;
+  justify-content: center;
+}
+
+.updatedCenter{
+  margin-left: 40%;
+  justify-content: center;
+}
+.centerPrice{
+  margin-left: 38%;
   justify-content: center;
 }
 /* @media (prefers-color-scheme: dark) {
@@ -234,7 +268,10 @@ body{
   )
 }
 
-
+.smallerContainer{
+  width: 50%;
+  height: 25%;
+}
 
 .justCenter{
   justify-content: center;
@@ -245,3 +282,16 @@ body{
 }
 
 
+.bigger{
+  font-size:55px;
+  font-weight:1000;
+}
+
+.big{
+  font-size: 35px;
+}
+
+
+.marginPastHeader{
+  margin-top:  6em;
+}

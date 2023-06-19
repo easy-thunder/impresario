@@ -1,0 +1,27 @@
+.boundary{
+    margin: 1em;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1em;
+    background-color: white;
+}
+
+.card{
+    border: solid white;
+    margin-left: auto;
+    margin-right: auto;
+    /* width: 80%; */
+    justify-content: center;
+    max-width: 80%;
+}
+
+
+.right{
+    margin-left: 70%;
+    justify-content: right;
+}
+
+.list{
+    border-spacing: 1em;
+
+}

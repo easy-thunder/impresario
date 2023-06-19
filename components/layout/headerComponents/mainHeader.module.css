@@ -1,19 +1,19 @@
 
-.header{
-    height:  auto;
-    width: auto;
-    background-color: rgba(175, 173, 214, 0.362);
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap ;
-    position: fixed;
-    width: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
+    .header{
+        height:  5em;
+        width: 100vw;
+        background-color: #b29d9a;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr ;
+        /* justify-content: center; */
+        position: fixed;
+        top: 0;
+        left: 0;
     padding: 10px;
+    /* margin: .5em; */
+    
 }
+
 
 
 

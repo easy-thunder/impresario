@@ -1,98 +1,4 @@
-/* .bottomLineTriangle{
-    width: 5em;
-    border: solid 1px rgb(19, 19, 19);
-    position: absolute;
-    margin-left: 1em;
-    transform: translate(.2em,5em)
-}
 
-
-
-.leftLineTriangle{
-    width: 5em;
-    border: solid 1px rgb(0, 0, 0);
-    position: absolute;
-    margin-left: 1.5em;
-    transform: rotate(-60deg) translate(-3.2em) 
-}
-
-.rightLineTriangle{
-    width: 5em;
-    border: solid 1px;
-    position: absolute;
-    margin-left: .9em;
-    transform: rotate(60deg) translate(3.2em)
-}
-
-.leftLineInnerTriangle{
-    width: 4.3em;
-    border: solid 1px;
-    position: absolute;
-    margin-left: 2.2em;
-    transform: rotate(-60deg) translate(-3.55em)
-}
-.rightLineInnerTriangle{
-    width: 4.3em;
-    border: solid 1px;
-    position: absolute;
-    margin-left: .9em;
-    transform: rotate(60deg) translate(3.55em)
-}
-
-
-.circle{
-    height: 2em;
-    width: 1.5em;
-    position: absolute;
-    border: solid 2px;
-    border-radius: 2em;
-    transform: translate(2.85em, 2.3em)
-}
-
-
-.horizontal{
-    
-    position: absolute;
-    border: solid  2px;
-    width: 1.9em;
-    transform: translate(-.3em, .8em)
-}
-
-.vertical{
-    position: absolute;
-    border: solid  2px;
-    width: 2.5em;
-    transform: translate(-.6em, .8em) rotate(90deg)
-} */
-
-/* .underLogo:hover{
-    cursor: pointer;
-    background-color: red;
-    width: 3em;
-    margin-left: 3em;
-    height: 2em;
-}
-
-.I{
-    margin-left:2em;
-    margin-top:1em;
-    position: absolute;
-}
-    
-.E{
-    margin-left:2em;
-    margin-top:1em;
-    position: absolute;
-}
-.S{
-    margin-left: 2em;
-    margin-top: 1em;
-    position: absolute;
-}
-/* .I:hover{animation: iMove 2s forwards;
-color: red;
-cursor: pointer;
-} */
 
 @keyframes iMove {
     0%{translate: 0px}
@@ -100,26 +6,17 @@ cursor: pointer;
 } 
 
 
-/* .vertical{
-    height: 3em;
-    width: 2px;
-    border: solid .2em;
-    margin-left: 2em;
-    margin-top: 1em;
-    position: absolute;
-} */
-
 
 .vertical{
     position: absolute;
-    border: solid 2px;
+    border: solid 4px;
     height: 3em;
     margin-left:2em;
-    margin-top:1em;
+    margin-top:1.1em;
 }
 .horizontalBottom{
     position: absolute;
-    border: solid 2px;
+    border: solid 4px;
     height: 1em;
     margin-left:2.5em;
     margin-top:4.1em;
@@ -128,7 +25,7 @@ cursor: pointer;
 }
 .horizontalTop{
     position: absolute;
-    border: solid 2px;
+    border: solid 4px;
     height: 1em;
     margin-left:1.5em;
     margin-top:-.2em;
@@ -136,19 +33,22 @@ cursor: pointer;
 }
 .horizontalMiddle{
     position: absolute;
-    border: solid 2px;
+    border: solid 4px;
     height: .5em;
     margin-left:2.5em;
     margin-top:2.1em;
     transform: rotate(90deg); 
 }
 
+.right1em{
+    right: 1em
+}
 
 .topCurve{
     position: absolute;
     height: 1em;
     width: 1em;
-    border: solid 4px;
+    border: solid 8px;
     border-radius: 150px 150px 0 0;
     border-bottom: 0;  
     margin-left:2em;
@@ -157,10 +57,10 @@ cursor: pointer;
     position: absolute;
     height: 1em;
     width: 1em;
-    border: solid 4px;
+    border: solid 6px;
     border-radius: 0 0  150px 150px;
     border-top: 0;
-    margin-left:.75em;
+    margin-left:.7em;
     margin-top: 3.8em
 }
 .marginPastLogo{

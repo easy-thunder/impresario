@@ -1,12 +1,17 @@
 import { Fragment } from "react"
 import classes from "../../pages/home.module.css"
+import Link from "next/link"
 
 export default function Education(){
     return(
         <Fragment>
+          <br/>
+          <br/>
         <div className='transitionCenter whiteText'>
           <h2 className='center'>Impresario Education</h2>
+          <Link href="../WebsiteEducation">
           <h3 >Signup</h3>
+          </Link>
         </div>
         <div className={classes.educationSection}>
           <div className='center'>

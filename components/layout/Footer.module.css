@@ -3,7 +3,27 @@
 .footer{
     height: 4em;
     width: 100%;
-    background-color: rgba(208, 71, 71, 0.133);
     position: absolute;
     margin-bottom: 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    margin-left: 1em;
+}
+
+.borderBottom{
+    border-bottom: solid #b03449 2px;
+    width: 9.5ch;
+}
+
+.borderBottom2{
+    border-bottom: solid #b03449 2px;
+    width: 6ch;
+}
+.borderBottom3{
+    border-bottom: solid #b03449 2px;
+    width: 6.25ch;
+}
+.borderBottom4{
+    border-bottom: solid #b03449 2px;
+    width: 7.75ch;
 }

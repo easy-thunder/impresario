@@ -1,61 +1,5 @@
-/* 
 
 
-
-
-
-
-.whoWeAre{
-    margin-left: auto;
-    margin-right: auto;
-    justify-content: center;
-    grid-template-columns: 1fr 1fr;
-}
-
-
-.bringItDown{
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 10em;
-    transform: translate(0, 8em);
-    justify-content: center;
-}
-
-.middle{
-    transform: translate(50%);
-    justify-content: center;
-    margin-left: auto;
-    
-    .landingImage{
-        min-height: 100vh;
-        background-image: linear-gradient(rgba(188, 199, 236, 0.804), rgba(97, 93, 86, 0.962))
-        ;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        position:initial;
-        background-position: center;
-        background-size: cover;
-    }
-    margin-right: 6em;
-}
-
-
-.educate{
-    grid-template-columns: span 2;
-    border: solid Red
-}
-
-
-.creationServicesDiv{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 1fr;
-}
-
-
- */
-
- 
 .educationSection{
     margin-left: 1%;
     width: 100%;
@@ -84,6 +28,9 @@
     ;
 }
 
+.up{
+    margin-top: -5%;
+}
 
 .header{
     grid-area: header;
@@ -97,6 +44,9 @@
 }
 .marginRightSome{
     margin-left: 20%
+}
+.goRightLess{
+    margin-left: 5%
 }
 
 .mainAttraction{
@@ -130,9 +80,7 @@ width: 100%;
 }
 
 
-.downFifth{
-    /* transform: translate(0,20vh); */
-}
+
 
 .rightDetails{
     grid-area: rightDetails;
@@ -148,6 +96,7 @@ width: 100%;
     margin-right: auto;
     justify-content: center;
 }
+
 
 .left{
     grid-area: left;
@@ -191,9 +140,7 @@ width: 100%;
 }
 
 
-.upTenth{
-    /* transform: translate(0,-5vh); */
-}
+
 
 
 .center{
