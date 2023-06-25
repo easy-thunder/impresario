@@ -6,21 +6,21 @@ export default function Footer(){
 return(
     <Fragment>
         <div className={`${classes.footer} whiteText`}>
-            <div>
+            {/* <div>
                 <h3 className={classes.borderBottom}>Social Media</h3>
                 <h4>TickTock</h4>
                 <h4>Youtube</h4>
                 <h4>Facebook</h4>
                 <h4>Instagram</h4>
-            </div>
+            </div> */}
             <div>
                 <h3 className={classes.borderBottom2}>Contact</h3>
                 <Link href="/Contact/Employment">
                 <h4>Employment</h4>
                 </Link>
                 <h4>(720) 773-1934</h4>
-                <h4>email</h4>
-                <h4>chat</h4>
+                <h4>jddiehl17@gmail.com</h4>
+                {/* <h4>chat</h4> */}
 
             </div>
             <div>

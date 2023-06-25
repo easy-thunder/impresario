@@ -6,14 +6,14 @@
     position: absolute;
     margin-bottom: 0;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     margin-left: 1em;
 }
 
-.borderBottom{
+/* .borderBottom{
     border-bottom: solid #b03449 2px;
     width: 9.5ch;
-}
+} */
 
 .borderBottom2{
     border-bottom: solid #b03449 2px;

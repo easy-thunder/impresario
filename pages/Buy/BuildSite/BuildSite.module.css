@@ -4,9 +4,11 @@
     grid-template-columns: 1fr 1fr 1fr;
     gap: 1em;
     background-color: white;
+    
 }
 
 .card{
+    display: grid;
     border: solid white;
     margin-left: auto;
     margin-right: auto;
@@ -24,4 +26,8 @@
 .list{
     border-spacing: 1em;
 
+}
+
+.listAttention{
+    background-color: rgb(228, 247, 197);
 }
