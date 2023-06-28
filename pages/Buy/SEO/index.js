@@ -20,7 +20,7 @@ export default function SiteBuilding(){
 
             </ul>
 <h5 className={`centerPrice`}>price: $49.99/month</h5>
-<button className="center">purchase</button>
+<h2>Contact to purchase</h2>
         </div>
 
         <div className={classes.card}>
@@ -37,7 +37,8 @@ export default function SiteBuilding(){
         
             </ul>
 <h6 className={`centerPrice`}> price: $199.85/month</h6>
-<button className="center">purchase</button>
+<h2>Contact to purchase</h2>
+
         </div>
         <div className={classes.card}>
             <h2 className=" updatedCenter">Site rework</h2>
@@ -55,7 +56,8 @@ export default function SiteBuilding(){
 
             </ul>
 <h5 className={`centerPrice`}>price: $199.85</h5>
-<button className="center">purchase</button>
+<h2>Contact to purchase</h2>
+
         </div>
 
 

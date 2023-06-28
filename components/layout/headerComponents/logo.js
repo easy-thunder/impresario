@@ -112,12 +112,12 @@ export default function Logo(){
 
 
 <div className={`${''}`}>
-
-<button className="button-64 smallerContainer" onClick={signUpModal}>SignUp</button>
+{/* I want to get better at next-auth before implementing on my website */}
+{/* <button className="button-64 smallerContainer" onClick={signUpModal}>SignUp</button>
 
 <span className="invisible">" "</span>
 
-<button className="button-64 smallerContainer" onClick={LoginModal}>Login</button>
+<button className="button-64 smallerContainer" onClick={LoginModal}>Login</button> */}
         </div>
 
 
