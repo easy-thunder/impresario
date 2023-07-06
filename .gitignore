@@ -30,5 +30,6 @@ yarn-error.log*
 
 # vercel
 .vercel
-**/lib
+
 db.js
+lib/
