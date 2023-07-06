@@ -2,7 +2,7 @@ import Link from "next/link"
 import classes from "../../pages/home.module.css"
 import { Fragment } from "react"
 export default function Landing(){
-    // the commented out is the old way I had it. Will still use code from there.
+
     return(
         <div className={classes.up}>
             

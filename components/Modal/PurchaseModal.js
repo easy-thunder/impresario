@@ -2,7 +2,7 @@ import { Fragment, useRef, useState } from "react";
 import classes from "./modal.module.css"
 
 
-export default function purchaseModal({paidOptions, setModal, paidPrice, paidDescriptions, initialPrice}){
+export default function PurchaseModal({paidOptions, title, setModal, paidPrice, paidDescriptions, initialPrice}){
 
     const sectionAdditionRef= useRef()
 
@@ -52,7 +52,7 @@ let now =  ((((sectionPrice+1)*e.target.value-previous)))
             <h4 onClick={modalOffHelper} className="whiteText exitButton">x</h4>
 
             <form onSubmit={submit}>
-                <h2 className="whiteText" >Static Site</h2>
+                <h2 className="whiteText" >{title}</h2>
             <div className="modal">
                 <h2 className="centerText">Paid Options</h2>
                 <br/>

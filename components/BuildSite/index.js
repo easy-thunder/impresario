@@ -24,6 +24,7 @@ function fullStackModal(){
 
     if(modal==="staticSite"){
         modalProperties={
+            title: "Static Site",
             paidOptions:["Stripe", "Thryv", "Advanced Search", "Google Maps", "Animations", "Content Generation", "Additional Sections"],
             paidDescriptions:["Automatic payment system for your business.", "Automatic scheduling system for your business.", "Get a search bar for your products or services that filter and sort.", "Get google maps locations on your website- useful for a mobile business.", "Add small animations to your site to make them more engaging.", "Generate content for your site to promote traffic flow.", "Get more sections for your website."],
             paidPrice: [249.99, 249.99, 99.85, 149.99, 149.99, 149.99, 299.85],
@@ -32,6 +33,7 @@ function fullStackModal(){
     }
     if(modal==="fullStack"){
         modalProperties={
+            title:"Full fullStack",
             paidOptions:["File Upload", "Sessions and Cookies", "Chat", "Automated Emails", "Google Maps", "Animations", "Content Generation", "Additional Sections"],
             paidDescriptions:["Give your users the ability to upload their files to your website.","Make it so your customer can refresh the website and not be logged out.", "Have your users be able to contact you instantly in your website.", "Be able to reach out to your customers for customer retention.", "Get google maps locations on your website- useful for a mobile business.", "Generate content for your site to promote traffic flow.","Get more sections for your website." ],
             paidPrice:[699.99,299.99,699.99, 499.99,149.99,149.99,149.99,419.85],
@@ -40,6 +42,7 @@ function fullStackModal(){
     }
     if(modal==="fullStackPlus"){
         modalProperties={
+            title: "Full Stack+",
             paidOptions:["Google Maps", "Animations", "Additional Sections"],
             paidDescriptions:["Get google maps locations on your website- useful for a mobile business.", "Add small animations to your site to make them more engaging.","Get more sections for your website."],
             paidPrice:[149.99,149.99,419.85],
@@ -141,7 +144,7 @@ className="center">purchase</button>
         </div>
 
         {modal?
-        <PurchaseModal initialPrice={modalProperties.initialPrice} paidOptions={modalProperties.paidOptions} paidPrice={modalProperties.paidPrice} paidDescriptions={modalProperties.paidDescriptions} setModal={setModal} />
+        <PurchaseModal initialPrice={modalProperties.initialPrice} title={modalProperties.title} paidOptions={modalProperties.paidOptions} paidPrice={modalProperties.paidPrice} paidDescriptions={modalProperties.paidDescriptions} setModal={setModal} />
          :null}
         
     </Fragment>)}

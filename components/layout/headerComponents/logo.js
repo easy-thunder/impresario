@@ -1,48 +1,47 @@
 import { Fragment, useState } from "react";
 import classes from "./logo.module.css"
 import Link from "next/link";
+import LoginModal from "@/components/Modal/LoginModal";
+import PurchaseModal from "@/components/Modal/PurchaseModal";
+import { useSession, signOut } from "next-auth/react";
 
 
 
-export default function Logo(){
+export default function Logo({setModal, modal}){
+    const{data: session, status} = useSession();
+
+    console.log(status)
+    console.log(session)
 
 
 
 
+    function turnOffModal(){
+        setModal(()=>null)
+    }
 
     function signUpModal(){
-        setModal(modal=>!modal)
+        setModal(()=>"signUp")
     }
 
     function LoginModal(){
-        setModal(modal=>!modal)
+        setModal(()=>"signIn")
+    }
+
+    function logOut(){
+        signOut();
     }
 
 
+    
+    
     return <Fragment>
-        {/* one IDEA FOR THE LOGO */}
-        {/* <div className={classes.bottomLineTriangle}></div>
-        <div className={classes.leftLineTriangle}></div>
-        <div className={classes.rightLineTriangle}></div>
-        <div className={classes.leftLineInnerTriangle}></div>
-        <div className={classes.rightLineInnerTriangle}></div>
 
-        <div className={classes.circle}>
-            <div className={classes.horizontal}></div>
-            <div className={classes.vertical}></div>
-        </div> */}
-        {/* End of idea one */}
-        {/* <section className={classes.underLogo}>
 
-        <h2 className={classes.I}>I
-        </h2>
-        <h2 className={classes.E}>E</h2>
-        <h2 className={classes.S}>S</h2>
-        </section> */}
-        <div>
+        <div  onClick={turnOffModal} className={modal? "modalBackground":null}>
 
 <Link href='/'>
-    <div className={``}>
+    <div>
 
         <div className={classes.vertical} style={{color: `#243972`}}></div>
         <div className={classes.horizontalBottom}  style={{color: `#243972`}}></div>
@@ -106,27 +105,34 @@ export default function Logo(){
         </Link>
             
 
-
-
-    
-
-
-<div className={`${''}`}>
-{/* I want to get better at next-auth before implementing on my website */}
-{/* <button className="button-64 smallerContainer" onClick={signUpModal}>SignUp</button>
+{session ? 
+    <div className={`${''}`}>
+<button className="button-64 smallerContainer" onClick={logOut}>SignOut</button>
 
 <span className="invisible">" "</span>
 
-<button className="button-64 smallerContainer" onClick={LoginModal}>Login</button> */}
+<button className="button-64 smallerContainer" onClick={LoginModal}>Profile</button>
         </div>
 
+:
 
+<div className={`${''}`}>
+<button className="button-64 smallerContainer" onClick={signUpModal}>SignUp</button>
+
+<span className="invisible">" "</span>
+
+<button className="button-64 smallerContainer" onClick={LoginModal}>Login</button>
+        </div>
+}
+
+    {/* {modal?
+    <LoginModal title={modalProperties.title} confirmPassword={modalProperties.confirmPassword} button={modalProperties.button} setModal={setModal} />
+     :null} */}
 
 
 
 
   
-
 
 
 
