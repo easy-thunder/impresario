@@ -2,6 +2,8 @@ import NextAuth from "next-auth"
 import CredentialsProvider from 'next-auth/providers/credentials'
 import { connectToDatabase } from "@/lib/db";
 import { verifyPassword } from "./auth";
+require("dotenv").config();
+
 // import Credentials from "next-auth/providers/credentials";
 //comment to git commit
 
