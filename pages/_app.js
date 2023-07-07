@@ -3,6 +3,7 @@ import Layout from '@/components/layout/layout'
 import { Fragment } from 'react'
 import { BlurContextProvider } from "@/components/BlurContext";
 import {SessionProvider} from "next-auth/react"
+import {Analytics} from '@vercel/analytics/react'
 
 
 export default function App({ Component, pageProps: {session, ...pageProps} }) {
@@ -14,6 +15,7 @@ export default function App({ Component, pageProps: {session, ...pageProps} }) {
   <Layout>
 
   <Component {...pageProps} />
+  <Analytics />
   </Layout>
 </BlurContextProvider>
       </SessionProvider>
