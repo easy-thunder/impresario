@@ -3,6 +3,8 @@ import CredentialsProvider from 'next-auth/providers/credentials'
 import { connectToDatabase } from "@/lib/db";
 import { verifyPassword } from "./auth";
 // import Credentials from "next-auth/providers/credentials";
+//comment to git commit
+
 
 export default NextAuth({
   session:{
