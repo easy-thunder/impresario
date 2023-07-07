@@ -28,8 +28,9 @@ export default function Logo({setModal, modal}){
         setModal(()=>"signIn")
     }
 
-    function logOut(){
-        signOut();
+    async function logOut(){
+        await signOut();
+        location.reload()
     }
 
 
@@ -111,7 +112,7 @@ export default function Logo({setModal, modal}){
 
 <span className="invisible">" "</span>
 
-<button className="button-64 smallerContainer" onClick={LoginModal}>Profile</button>
+{/* <button className="button-64 smallerContainer" onClick={LoginModal}>Profile</button> */}
         </div>
 
 :

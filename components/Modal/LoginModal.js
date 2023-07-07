@@ -10,6 +10,10 @@ export default function LoginModal({title, confirmPassword, button, setModal}){
     const passwordCheckRef = useRef()
 
     const [isLogin, setIsLogin]= useState(true)
+    const [calling, setCalling]= useState(false)
+    const [error, setError]= useState(false)
+    const [message, setMessage]=useState(false)
+
     useEffect(()=>{
         if(button==="Sign Up"){
             setIsLogin(()=>false)
@@ -27,19 +31,26 @@ export default function LoginModal({title, confirmPassword, button, setModal}){
     //     setIsLogin(isLogin=>!isLogin)
     // }
 
-     async function createUser(e){
+
+
+      async function createUser(e){
         e.preventDefault()
+        setCalling(()=>true)
         const email = emailInputRef.current.value
         const password = passwordInputRef.current.value
-        
+
         if(isLogin){
-            //login
             const result = await signIn('credentials', {
                 redirect: false,
                 email: email,
                 password: password,
             })
-            console.log(result)
+            setCalling(()=>false)
+            setError(()=>result.error)
+            if(result.status===200){
+                modalOffHelper()
+            }
+           
         }
         else{
             const checkPassword = passwordCheckRef.current.value
@@ -52,9 +63,17 @@ export default function LoginModal({title, confirmPassword, button, setModal}){
         })
         .then((r)=> r.json())
         .then(data=> console.log(data.message))
+        .then(setCalling(()=>false))
+        .then(setMessage(()=>"Sign in to access your account. I realize I could have just signed in but my next step is email verification to prevent spam."))
+
+        // .then(modalOffHelper())
+
+
         }
         catch(error){
-            console.log(error)
+            setError(()=>error)
+            setCalling(()=>false)
+            
         }
 
     }
@@ -94,6 +113,7 @@ export default function LoginModal({title, confirmPassword, button, setModal}){
 
     function modalOffHelper(){
         setModal(()=>null)
+        setError(()=>false)
     }
 
 
@@ -126,8 +146,10 @@ export default function LoginModal({title, confirmPassword, button, setModal}){
                     :null
                 }
                 <br/>
-            <input type="submit" value={button} />
+            <input type="submit" value={calling? "Loading":button} disabled={calling? "disabled": null}/>
                 </div>
+                {error? <h2 className="red">{error}</h2>:null}
+                {message? <h2 className="whiteText">{message}</h2>:null}
 
         </form>
            
