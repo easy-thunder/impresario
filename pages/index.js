@@ -11,9 +11,7 @@ import Education from '@/components/homepage/Education'
 export default function Home() {
 
 
-
 // I can't tell you how many times I changed the css and complete layout
-
 
 
   return (
