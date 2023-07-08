@@ -24,12 +24,15 @@
     'mainAttraction mainAttraction mainAttraction mainAttraction mainAttraction'
     'mainAttraction mainAttraction mainAttraction mainAttraction mainAttraction'
     'leftDetails leftDetails details rightDetails rightDetails'
-    
     ;
+}
+.triGrid{
+    display: grid;
+    grid-template-columns: repeat(3,33vw);
 }
 
 .up{
-    margin-top: -5%;
+    margin-top: -3.5%;
 }
 
 .header{
@@ -116,6 +119,8 @@ width: 100%;
     margin-left: auto;
     margin-right: auto;
     width: 40ch;
+    height: 25vw;
+
 
 }
 .lowerRight{
@@ -137,7 +142,11 @@ width: 100%;
     margin-right: auto;
     justify-content: center;
     width: 40ch;
+    height: 25vw;
+
 }
+
+
 
 
 
@@ -149,4 +158,16 @@ width: 100%;
 }
 .centerLess{
     transform: translate(22vw, 20vh)
+}
+
+
+.promotional{
+    margin-left: 1%;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 3em;
+    margin-top: 10em;
+    margin-bottom: 10em;
 }

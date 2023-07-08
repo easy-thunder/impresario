@@ -108,7 +108,51 @@ let now =  ((((sectionPrice+1)*e.target.value-previous)))
                         <option value={11}>11</option>
                         <option value={12}>12</option>
                     </select>
+                    
                 </Fragment>:null}
+                {/* <br/>
+                <h2 className="centerText">Free Options</h2>
+                <br />
+                <h3 className="centerText">Skeleton Frames</h3>
+                <Fragment> 
+                        <div>
+                        <div>
+
+                        <h3>Feature Product</h3>
+                        <label className="switch">
+                            
+  <input type="checkbox" />
+  <span className="slider round"></span>
+</label>
+<div className={classes.skeletonFrame}>
+    <div className={classes.centerBox}></div>
+    <div className={classes.topLeftCircle}><p style={{}}></p></div>
+    <div className={classes.topRightCircle}></div>
+    <div className={classes.referenceCircle}></div>
+
+
+</div>
+
+                        </div>
+                        <div>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <p>
+                                
+                            </p>
+                            </div>
+                        </div>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+                    </Fragment> */}
+                
             </div>
                 <h3 className="whiteText">total:${Math.round((total)*100)/100} </h3>
                 <h2 className="whiteText">To get setup call (720) 773-1934</h2>
