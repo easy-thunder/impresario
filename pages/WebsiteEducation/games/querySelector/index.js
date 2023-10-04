@@ -2,7 +2,7 @@ import { Fragment, useState,useEffect } from "react";
 import Link from "next/link";
 import classes from '../../EducationIntro.module.css'
 import QuerySelectorNavBar from "@/components/querySelector/querySelectorNavBar";
-import { changeUserSelectionFunction} from "./querySelectorMasterFunctions";
+import { changeUserSelectionFunction} from "../../../../components/querySelector/querySelectorMasterFunctions";
 
 //Just to note, I realize there is a lot of repeat structure between this file and all the other querySelector files. 
 //There is just too much custom code in each section and div that trying to bring it in as an import isn't practical.

@@ -2,7 +2,7 @@ import { Fragment, useState, useEffect } from "react";
 import Link from "next/link";
 import classes from '../../EducationIntro.module.css'
 import QuerySelectorNavBar from "@/components/querySelector/querySelectorNavBar";
-import { changeUserSelectionFunction } from "./querySelectorMasterFunctions";
+import { changeUserSelectionFunction } from "../../../../components/querySelector/querySelectorMasterFunctions";
 
 
 
