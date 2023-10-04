@@ -19,7 +19,7 @@ export default function QuerySelector(){
     const [badMessage, setBadMessage]=useState("");
     
 
-    
+
     const elements=["<document>",
     '   <div className={classes.box}></div>',
     "   <div className={classes.box}></div>",
@@ -67,7 +67,7 @@ export default function QuerySelector(){
 
     return <Fragment>
         <div className="marginPastHeader whiteText"></div>
-        <h1 className="whiteText">querySelector Master</h1>
+        <h1 className="whiteText">QueryQuest.js</h1>
         <div className={classes.interactiveConsoleAndScreen}>
             <QuerySelectorNavBar />
             <div className={classes.screenAndElements}>

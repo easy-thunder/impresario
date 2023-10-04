@@ -34,7 +34,7 @@ export default NextAuth({
       }
     })
   ], 
-  secret: process.env.NEXTAUTH_SECRET,
+  secret: process.env.NEXTAUTH_SECRET, //THIS IS DEFINED IN THE VERCEL ENV VARIABLES
 });
 
 
