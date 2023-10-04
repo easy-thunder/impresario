@@ -154,7 +154,7 @@ let now =  ((((sectionPrice+1)*e.target.value-previous)))
                     </Fragment> */}
                 
             </div>
-                <h3 className="whiteText">total:${Math.round((total)*100)/100} </h3>
+                <h3 className="whiteText">quote:${Math.round((total)*100)/100} </h3>
                 <h2 className="whiteText">To get setup call (720) 773-1934</h2>
                 </form>
         </div>

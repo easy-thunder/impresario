@@ -64,7 +64,7 @@ export default function LoginModal({title, confirmPassword, button, setModal}){
         .then((r)=> r.json())
         .then(data=> console.log(data.message))
         .then(setCalling(()=>false))
-        .then(setMessage(()=>"Sign in to access your account. I realize I could have just signed in but my next step is email verification to prevent spam."))
+        .then(setMessage(()=>"Sign in to access your account. This account already exists"))
 
         // .then(modalOffHelper())
 

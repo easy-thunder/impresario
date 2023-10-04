@@ -1,11 +1,48 @@
 
 .boundary{
-    margin: 1em;
-    height: 60vh;
+ margin: 1em;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1em;
     background-color: white;
+}
+.interactiveConsoleAndScreen{
+     margin: 1em;
+    display: grid;
+    grid-template-columns: 1fr 8fr 2fr;
+    gap: 1em;
+    background-color: white;
+}
+.screenAndElements{
+    display: grid;
+    grid-template-rows: 4fr 1fr;
+    border:1px solid blue;
+    height:80vh
+}
+.screen{
+    overflow-y: scroll;
+}
+.elements{
+    overflow-y: scroll;
+}
+
+.console{
+    display: grid;
+    grid-template-rows: 2fr 1fr;
+    border:1px solid blue;
+    height:80vh;
+}
+.instructions{
+    overflow-y: scroll;
+}
+.mainInstructions{
+    border: solid black 3px;
+    padding: 1%;
+    color: red;
 }
 
 .card{
+    display: grid;
     border: solid white;
     margin-left: auto;
     margin-right: auto;
@@ -24,3 +61,42 @@
     border-spacing: 1em;
 
 }
+
+.screenSelector{
+    overflow-y: scroll;
+    border-top: solid black 10px;
+}
+.querySelectorNavBar{
+    overflow-y: scroll;
+}
+
+
+
+.box{
+    border: solid rgb(255, 0, 0) .5em;
+    height:10%;
+    width: 10%;
+}
+.thisBox{
+    border: solid blue .5em;
+    height:10%;
+    width: 10%;
+}
+.bigBox{
+    border: solid rgb(255, 0, 0) .5em;
+    height:45%;
+    width: 45%;
+
+}
+.childBox{
+    border: solid red .5em;
+    height: 30%;
+    width: 30%;
+}
+.thisBigBox{
+    border: solid blue .5em;
+    height:45%;
+    width: 45%;
+}
+
+
