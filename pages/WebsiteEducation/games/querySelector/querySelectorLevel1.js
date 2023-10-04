@@ -31,7 +31,6 @@ export default function QuerySelectorLevel1(){
     let submit;
         //JSX is loaded in next.js before the html is converted to the DOM. So document is undefined when script first loads. So I use a useEffect with a if statement to ensure the DOM loads first.
 
-
         
 
     function changeUserSelection(e){
