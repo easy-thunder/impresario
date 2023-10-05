@@ -11,6 +11,8 @@ export default function QuerySelectorNavBar(){
                 <Link href='/WebsiteEducation/games/querySelector/querySelectorLevel4'><p>Child Combinator</p></Link>
                 <Link href='/WebsiteEducation/games/querySelector/querySelectorLevel5'><p>Double Nested Elements</p></Link>
                 <Link href='/WebsiteEducation/games/querySelector/querySelectorLevel6'><p>Combining+ and &#62;</p></Link>
+                <Link href='/WebsiteEducation/games/querySelector/querySelectorLevel7'><p>Navigating Tables</p></Link>
+                <Link href='/WebsiteEducation/games/querySelector/querySelectorLevel8'><p>ID's for querySelector</p></Link>
 
 
     </div>

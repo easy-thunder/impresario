@@ -19,7 +19,7 @@ export function changeUserSelectionFunction(e,selection,setBadMessage,submit,ele
             if(selection==null){
                 setBadMessage(()=>"Unfortunately you didn't put a valid element into the querySelector. This would normally error out the program. Try again!")
                 return 0}
-            if(selection.className.includes("thisBox")|| selection.className.includes("thisBigBox")){
+            if(selection.className.includes("this")){
                 submit.disabled=true;
                 setBadMessage("")
                  selection.style.backgroundColor="green";
