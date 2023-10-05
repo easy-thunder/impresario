@@ -13,6 +13,7 @@ export default function QuerySelectorNavBar(){
                 <Link href='/WebsiteEducation/games/querySelector/querySelectorLevel6'><p>Combining+ and &#62;</p></Link>
                 <Link href='/WebsiteEducation/games/querySelector/querySelectorLevel7'><p>Navigating Tables</p></Link>
                 <Link href='/WebsiteEducation/games/querySelector/querySelectorLevel8'><p>ID's for querySelector</p></Link>
+                <Link href='/WebsiteEducation/games/querySelector/querySelectorLevel9'><button>Classes for querySelector</button></Link>
 
 
     </div>
