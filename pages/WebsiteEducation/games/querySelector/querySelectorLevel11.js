@@ -1,4 +1,8 @@
-import { Fragment, useState, useEffect } from "react";
+{/* <p>Query selectors are the key to unlocking the full potential of DOM manipulation in web development. One often overlooked but powerful feature is the use of square brackets [ ]. What do they do, you ask? Well, they let you target elements based on their inline attributes! That is how we were able to use the [class*="this"] in the previous example</p> */}
+                    // <p>In the previous lesson we used the * wildcard. In this lesson we will use the ^ start of attribute selector. The ^ indicates that you want elements with attributes that start with that substring.</p>
+                    // <p>In the second example notice the * before the = sign. This is stating within the class does there exist the string "this"? If so then select that element.</p>
+
+                    import { Fragment, useState, useEffect } from "react";
 import Link from "next/link";
 import classes from '../../EducationIntro.module.css'
 import QuerySelectorNavBar from "@/components/querySelector/querySelectorNavBar";
@@ -9,7 +13,7 @@ import { changeUserSelectionFunction } from "../../../../components/querySelecto
 
 
 
-export default function QuerySelectorLevel9(){
+export default function QuerySelectorLevel10(){
     
     const [hint, setHint]=useState(false);
     const [answer, setAnswer]=useState(false);
@@ -113,7 +117,7 @@ export default function QuerySelectorLevel9(){
           </tr>
           <tr>
             <td>Data 2.1</td>
-            <td className={classes.this}>Data 2.2</td>
+            <td id="this" className={classes.this}>Data 2.2</td>
             <td>Data 2.3</td>
           </tr>
         </tbody>
@@ -136,11 +140,10 @@ export default function QuerySelectorLevel9(){
             </div>
             <div className={classes.console}>
                 <div className={classes.instructions}>
-                    <h3>Classes for querySelector</h3>
-                    <p>Drawing attention to the elements we have: &lt;td class="EducationIntro_this__gdSoG"&gt; Data2.2 &lt;/td&gt;. I actually named the className="this". So why did the DOM prepend my folder name and append the random string? </p>
-                    <p>In my CSS I used something called a module. A css module is a file that is separate from your global css file. In order to prevent two classes from crossing over the DOM automatically prepends and appends those values to your className. This is very important to know if you are trying to use querySelector in your own program.</p>
-                    <p>But here are two different ways to querySelect your class we can use document.querySelector(".EducationIntro_this__gdSoG") or we can use document.querySelector( "[class*="this"]")</p>
-                    <p>In the second example notice the * before the = sign. The * signifies that you're interested in elements where the attribute contains that substring anywhere within its value.</p>
+                    <h3>Accessing Dev Tools</h3>
+                    
+               
+
                     <p className={classes.mainInstructions}>Select the blue table data navigating with the information We have learned and utilizing the elements section. Note that I have disabled the child combinator route and the nth-child pseudo-class</p>
                 </div>
                 <div className={classes.screenSelector}>
@@ -154,10 +157,10 @@ export default function QuerySelectorLevel9(){
                     </form>
                     {hintButton? <button onClick={activateHint}>hint</button>:null}
                     {hint? <button onClick={activateAnswer} >answer</button>:null}
-                    {hint? <p>Look at the elements. find the td that has an class attribute. Note that I have disabled using the child combinator route.</p>: null}
+                    {hint? <p>If you got to the elements tab click on body&gt;</p>: null}
                     {answer? <p>copy and paste: [class*="this"] or .EducationIntro_this__gdSoG
                     </p>: null}
-                    {nextLesson?       <Link href='/WebsiteEducation/games/querySelector/querySelectorLevel10'><button>continue</button></Link>:null}
+                    {nextLesson?       <Link href='/WebsiteEducation/games/querySelector/querySelectorLevel11'><button>continue</button></Link>:null}
                     {badMessage? <p className="red">{badMessage}</p>:null}
                 </div>
 
