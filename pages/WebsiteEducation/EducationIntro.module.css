@@ -109,5 +109,6 @@ font-size: larger;
 border: solid blue;
 }
 
-
-
+.notthis{
+    margin: auto;
+}

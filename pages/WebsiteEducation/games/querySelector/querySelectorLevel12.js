@@ -83,12 +83,12 @@ export default function QuerySelectorLevel10(){
         {/* Table body */}
         <tbody>
           <tr>
-            <td className="notthis">Data 1.1</td>
-            <td className="notthis">Data 1.2</td>
+            <td className={classes.notthis}>Data 1.1</td>
+            <td className={classes.notthis}>Data 1.2</td>
             <td>Data 1.3</td>
           </tr>
           <tr>
-            <td className="notthis">Data 2.1</td>
+            <td className={classes.notthis}>Data 2.1</td>
             <td className={classes.this}>Data 2.2</td>
             <td>Data 2.3</td>
           </tr>
@@ -110,13 +110,10 @@ export default function QuerySelectorLevel10(){
             </div>
             <div className={classes.console}>
                 <div className={classes.instructions}>
-                    <h3>The ^ operator</h3>
-                     <p>In the previous lesson we used the * wildcard. In this lesson we will use the ^ start of attribute selector. The ^ indicates that you want elements with attributes that start with that substring. This is especially useful in navigating through tailwind classes.</p>
-                    <p>Tailwind generates styling utilizing inline classNames make if very difficult to select an element based on className alone. Developers often leave out ID's and it can be a headache trying to use the * operator in your attribute selector (ie.[class*="this"]). </p>
-                    <p>The ^ operator in document.querySelector is a powerful tool for navigating Tailwind CSS-driven applications and other projects where class names are dynamically generated. Tailwind CSS generates a unique set of class names based on the utility classes you use in your HTML, and these class names often have complex prefixes to prevent naming collisions.</p>
-
-
-                    <p className={classes.mainInstructions}>Select the blue table data using the ^ operator. You must solve this using the attribute selector []. Really try to get the answer. If you get  it great, still check out the answer for a bonus way of how to solve this.</p>
+                    <h3>The $ operator</h3>
+                    <p>The $ operator does the exact opposite of the ^ operator. While ^ selects elements where the attribute's value starts with a specified substring, $ selects elements where the attribute's value ends with a specified substring. It's a handy way to target elements with attributes that have specific endings, offering flexibility in element selection based on attribute values.</p>
+                    <p>The syntax looks exactly the same as the ^ operator only we use the money sign (ie.document.querySelector("[attribute$='End_of_attribute']"))</p>
+                    <p className={classes.mainInstructions}>Select the blue table data using the $ operator. Note that you must use the attribute selector [].</p>
                 </div>
                 <div className={classes.screenSelector}>
                     <form onSubmit={changeUserSelection}>
@@ -129,8 +126,8 @@ export default function QuerySelectorLevel10(){
                     </form>
                     {hintButton? <button onClick={activateHint}>hint</button>:null}
                     {hint? <button onClick={activateAnswer} >answer</button>:null}
-                    {hint? <p>Notice that in the elements tab the first couple of td elements start with 'not'. What does the element we want start with?</p>: null}
-                    {answer? <p>copy and paste: [class^="Education"] Bonus: you can use tr+tr&gt;[class*='this']:nth-child(2)
+                    {hint? <p>Notice that in the elements tab the first couple of td elements ends with 't1byr'. What does the element we want end with?</p>: null}
+                    {answer? <p>copy and paste: [class$='gdSoG']
                     </p>: null}
                     {nextLesson?       <Link href='/WebsiteEducation/games/querySelector/querySelectorLevel12'><button>continue</button></Link>:null}
                     {badMessage? <p className="red">{badMessage}</p>:null}
