@@ -13,7 +13,7 @@ import { changeUserSelectionFunction } from "../../../../components/querySelecto
 
 
 
-export default function QuerySelectorLevel10(){
+export default function QuerySelectorLevel11(){
     
     const [hint, setHint]=useState(false);
     const [answer, setAnswer]=useState(false);

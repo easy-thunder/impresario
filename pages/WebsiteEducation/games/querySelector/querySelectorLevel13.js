@@ -1,5 +1,4 @@
 
-
 import { Fragment, useState, useEffect } from "react";
 import Link from "next/link";
 import classes from '../../EducationIntro.module.css'
@@ -11,7 +10,7 @@ import { changeUserSelectionFunction } from "../../../../components/querySelecto
 
 
 
-export default function QuerySelectorLevel12(){
+export default function QuerySelectorLevel13(){
     
     const [hint, setHint]=useState(false);
     const [answer, setAnswer]=useState(false);
@@ -82,8 +81,8 @@ export default function QuerySelectorLevel12(){
         <tbody>
           <tr>
             <td className={classes.notthis}>Data 1.1</td>
-            <td className={classes.notthis}>Data 1.2</td>
-            <td>Data 1.3</td>
+            <td className="notthis">Data 1.2</td>
+            <td class="notthisgdSoG">Data 1.3</td>
           </tr>
           <tr>
             <td className={classes.notthis}>Data 2.1</td>
@@ -108,10 +107,13 @@ export default function QuerySelectorLevel12(){
             </div>
             <div className={classes.console}>
                 <div className={classes.instructions}>
-                    <h3>The $ operator</h3>
-                    <p>The $ operator does the exact opposite of the ^ operator. While ^ selects elements where the attribute's value starts with a specified substring, $ selects elements where the attribute's value ends with a specified substring. It's a handy way to target elements with attributes that have specific endings, offering flexibility in element selection based on attribute values.</p>
-                    <p>The syntax looks exactly the same as the ^ operator only we use the money sign (ie.document.querySelector("[attribute$='End_of_attribute']"))</p>
-                    <p className={classes.mainInstructions}>Select the blue table data using the $ operator. Note that you must use the attribute selector [].</p>
+                <h3>The not pseudo class</h3>
+                    <p>Sometimes class names can be horrendous. You have class names that start with the same value as your target class, and class names that end with your target class.</p>
+                    <p>We can use the not pseudo class to help us navigate through that mess.</p>
+                    <p>The :not() pseudo-class in document.querySelector allows you to select elements that do not match a specific selector. You provide two selectors within the :not() function: the primary selector, which defines the elements you want to select, and the selector to exclude, which specifies which elements to exclude from the selection. Elements matching the primary selector but not the exclusion selector will be selected. It's a powerful tool for fine-tuning your element selection and excluding specific elements based on their attributes, classes, or other criteria.</p>
+                    <p>The syntax looks like:</p>
+                    <p>document.querySelector("div:not([ class='theValueWeDon't want!'])")</p>
+                    <p className={classes.mainInstructions}>Select the blue table data using the not pseudo class. Note that you must use the attribute selector [].</p>
                 </div>
                 <div className={classes.screenSelector}>
                     <form onSubmit={changeUserSelection}>
@@ -124,10 +126,10 @@ export default function QuerySelectorLevel12(){
                     </form>
                     {hintButton? <button onClick={activateHint}>hint</button>:null}
                     {hint? <button onClick={activateAnswer} >answer</button>:null}
-                    {hint? <p>Notice that in the elements tab the first couple of td elements ends with 't1byr'. What does the element we want end with?</p>: null}
-                    {answer? <p>copy and paste: [class$='gdSoG']
+                    {hint? <p>Notice that all the elements we don't want has 'not' included in their names. What do you think the value in our not() should include?</p>: null}
+                    {answer? <p>copy and paste: [class*='this']:not([class*='not'])
                     </p>: null}
-                    {nextLesson?       <Link href='/WebsiteEducation/games/querySelector/querySelectorLevel13'><button>continue</button></Link>:null}
+                    {nextLesson?       <Link href='/WebsiteEducation/games/querySelector/querySelectorLevel14'><button>continue</button></Link>:null}
                     {badMessage? <p className="red">{badMessage}</p>:null}
                 </div>
 
