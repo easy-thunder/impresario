@@ -97,11 +97,7 @@ export default function QuerySelectorLevel14(){
                     <li>Attribute Value Prefix Selector ([attribute|="value"]): Selects elements with an attribute whose value is either an exact match or starts with the specified value followed by a hyphen (-).</li>
                     <li>Attribute Value Not Equal Selector ([attribute!="value"]): Selects elements with an attribute that does not match the specified value. We didn't learn this one because it was included in the not:(selector)</li>
                 </ul>
-                <h3>Continuing on to document.querySelectorAll()</h3>
-                <p>Now that you have a good idea of how document.querySelector works we will start looking at how to use document.querySelectorAll works. Click the continue button to see the next Lesson</p>
-
-
-    
+               
   
                  
                 </section>
