@@ -18,6 +18,7 @@ export default function QuerySelectorNavBar(){
                 <Link href='/WebsiteEducation/games/querySelector/querySelectorLevel11'><p>The ^ Operator</p></Link> 
                 <Link href='/WebsiteEducation/games/querySelector/querySelectorLevel12'><p>The $ Operator</p></Link> 
                 <Link href='/WebsiteEducation/games/querySelector/querySelectorLevel13'><p>The not pseudo class</p></Link> 
+                <Link href='/WebsiteEducation/games/querySelector/querySelectorLevel15'><p>querySelectorAll</p></Link> 
                 <Link href='/WebsiteEducation/games/querySelector/querySelectorLevel14'><p>Summary of querySelector</p></Link> 
 
 

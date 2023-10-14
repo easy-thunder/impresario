@@ -9,8 +9,6 @@ export default function MainHeader({setModal, modal}){
     return <header className={classes.header}>
         {/* really this is the whole header not just the logo */}
         <Logo setModal={setModal} modal={modal} />
-
- 
     </header>
 }
 

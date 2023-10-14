@@ -112,13 +112,12 @@ export default function QuerySelectorLevel14(){
             </div>
             <div className={classes.console}>
                 <div className={classes.instructions}>
-                    <h3>The querySelectorAll lesson is still under construction.</h3>
            
                 </div>
                 <div className={classes.screenSelector}>
 
 
-                    <Link href='/WebsiteEducation/games/querySelector/querySelectorLevel14'><button>continue</button></Link>
+                    {/* <Link href='/WebsiteEducation/games/querySelector/querySelectorLevel15'><button>continue</button></Link> */}
                     {badMessage? <p className="red">{badMessage}</p>:null}
                 </div>
 

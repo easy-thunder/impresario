@@ -129,7 +129,7 @@ export default function QuerySelectorLevel13(){
                     {hint? <p>Notice that all the elements we don't want has 'not' included in their names. What do you think the value in our not() should include?</p>: null}
                     {answer? <p>copy and paste: [class*='this']:not([class*='not'])
                     </p>: null}
-                    {nextLesson?       <Link href='/WebsiteEducation/games/querySelector/querySelectorLevel14'><button>continue</button></Link>:null}
+                    {nextLesson?       <Link href='/WebsiteEducation/games/querySelector/querySelectorLevel15'><button>continue</button></Link>:null}
                     {badMessage? <p className="red">{badMessage}</p>:null}
                 </div>
 

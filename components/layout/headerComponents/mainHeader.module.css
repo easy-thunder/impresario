@@ -2,7 +2,7 @@
     .header{
         height:  5em;
         width: 100vw;
-        background-color: #b29d9a;
+        background-color: #efe9e9;
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr 1fr ;
         /* justify-content: center; */
