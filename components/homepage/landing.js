@@ -8,7 +8,7 @@ export default function Landing(){
             
 
 
-            <video loop  muted autoPlay id="bg-video" src='/public/BackgroundImageForTitleImpresario.mp4'>
+            <video loop  muted autoPlay id="bg-video" src='/public/VideoForImpresariov2.mp4'>
               <source src='/public/BackgroundImageForTitleImpresario.mp4' />
             </video>
         <svg class="banner">
