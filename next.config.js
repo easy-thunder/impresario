@@ -3,4 +3,15 @@ const nextConfig = {
   reactStrictMode: true,
 }
 
-module.exports = nextConfig
+module.exports = {
+  ...nextConfig, // Include all properties from nextConfig
+  // Other Next.js configurations
+  async rewrites() {
+    return [
+      {
+        source: '/public/:path*',
+        destination: '/:path*',
+      },
+    ];
+  },
+};

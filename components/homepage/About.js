@@ -4,11 +4,11 @@ import classes from "../../pages/home.module.css"
 
 
 export default function About(){
-return  <Fragment>
-<h2 className='transitionCenter whiteText'>About Impresario</h2>
+return  <div className='goLeftPhone'>
+<h2 className='transitionCenter whiteText goLeftPhone'>About Impresario</h2>
 
 <div className={`${classes.leftRight} whiteText`}>
-   <div className={`${classes.title}`}><h3>The Entrepreneur of Impresario</h3></div>
+   <div className={`${classes.title} `}><h3>The Entrepreneur of Impresario</h3></div>
    <div className={`${classes.left}`}></div>
    <div className={`${classes.right}`} ><p>Hi, I'm Jake, I've held many titles. Raft Guide, Musician, Biologist, Software Engineer,  and now Entrepreneur. </p>
   <p>In any role I've held I've put nothing but my whole heart into it.
@@ -19,6 +19,7 @@ return  <Fragment>
   <p>Let's take back business from large corporations and bring it back to you!</p>
   </div>
 </div>
+<div className='pxSpacer'></div>
 <div className={`${classes.leftRight} whiteText`}>
    <div className={`${classes.title}`}><h3>The Mission of impresario</h3></div>
    <div className={`${classes.lowerRight}`}></div>
@@ -30,6 +31,6 @@ return  <Fragment>
   <p>And become the cultivation of community that impresario is.</p>
   </div>
 </div>
-</Fragment>
+</div>
 
 }

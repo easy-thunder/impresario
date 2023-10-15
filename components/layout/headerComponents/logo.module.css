@@ -98,6 +98,15 @@ line-height: .01em;
     width: 1em;
   }
 
+
+  @media (max-width: 768px) {
+    .marginPastLogo{
+        display:none;
+    }
+    
+    
+  }
+
 /* 
 
 
