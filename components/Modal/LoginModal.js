@@ -107,9 +107,9 @@ export default function LoginModal({title, confirmPassword, button, setModal}){
                     <br/>
                     <input type="password" ref={passwordCheckRef} id='check'/>
                     <br/>
-                    <input type="checkbox" /> <label>Acknowledge you have read our <Link href="/PrivacyPolicy" style={{color: "blue"}}>Privacy Policy</Link> and that we may use your email to promote services Impresario offers. </label>
+                    <input type="checkbox" /> <label>Acknowledge you have read our <Link href="/Legal/PrivacyPolicy" style={{color: "blue"}}>Privacy Policy</Link> and that we may use your email to promote services Impresario offers. </label>
                 <br/>
-                <input type="checkbox"/> <label>Acknowledge you have read about how to <Link href="/DeleteInstructions" style={{color: "blue"}}>delete your profile</Link> and unsubscribe from Impresario.</label>
+                <input type="checkbox"/> <label>Acknowledge you have read our <Link href="/Legal/TermsOfService" style={{color: "blue"}}>terms of service</Link>.</label>
                     </Fragment>
                     :null
                 }

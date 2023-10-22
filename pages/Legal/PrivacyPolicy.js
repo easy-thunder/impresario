@@ -6,7 +6,7 @@ export default function PrivacyPolicy(){
     return <Fragment>
 
         <div className="marginPastHeader whiteText"></div>
-        <h1 className="whiteText updatedCenter">Your Next Site</h1>
+        <h1 className="whiteText updatedCenter">Privacy Policy</h1>
         <div style={{backgroundColor:"white"}}>
         <h2>PRIVACY POLICY</h2>
 
@@ -45,7 +45,12 @@ export default function PrivacyPolicy(){
 <p>
   b. We will not sell, rent, or disclose your Email to any third party without your explicit consent unless required by law.
 </p>
-
+<p>
+  c. To enhance security, we use a combination of salt and hashing with bcrypt.js to protect users' passwords before storing them in our database. This additional layer of protection helps safeguard your information.
+</p>
+<p>
+  d. It's important to note that while we employ these security measures, no system is entirely immune from potential risks. Some hacking methods, such as brute force attacks, may pose a security challenge. We remain dedicated to regularly updating and enhancing our security protocols to mitigate these risks and ensure your data is as secure as possible.
+</p>
 <h3>5. COMPLIANCE WITH LAWS AND REGULATIONS</h3>
 <p>
   a. We will comply with all applicable laws, regulations, and industry standards regarding email marketing, data privacy, and consumer protection.
