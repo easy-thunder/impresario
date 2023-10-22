@@ -2,7 +2,7 @@ import { Fragment, useEffect, useRef, useState } from "react";
 import classes from "./modal.module.css"
 import { signIn } from "next-auth/react";
 import FacebookLogin from "../SignInButtons/FacebookLogin";
-
+import Link from "next/link";
 
 export default function LoginModal({title, confirmPassword, button, setModal}){
 
@@ -27,10 +27,7 @@ export default function LoginModal({title, confirmPassword, button, setModal}){
 
 
 
-
-
-
-async function createUser(e){
+      async function createUser(e){
         e.preventDefault()
         setCalling(()=>true)
         const email = emailInputRef.current.value
@@ -51,17 +48,18 @@ async function createUser(e){
         }
         else{
             const checkPassword = passwordCheckRef.current.value
-            const newUser={email:email, password:password, check:checkPassword}
-        try{
+            const newUser={email:email, password:password, checkPassword:checkPassword}
+            console.log(email, password, checkPassword)
+    try{
         fetch('/api/auth/signup',{
             method: 'POST',
-            body: JSON.stringify(newUser),
-            headers: {"Content-Type": "application/json"}
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify(newUser)
         })
         .then((r)=> r.json())
         .then(data=> console.log(data.message))
         .then(setCalling(()=>false))
-        .then(setMessage(()=>"Sign in to access your account."))
+        .then(setMessage(()=>"Sign in to access your account. This account already exists"))
 
 
 
@@ -74,7 +72,6 @@ async function createUser(e){
 
     }
 }
-
 
 
 
@@ -109,6 +106,10 @@ async function createUser(e){
                     <label>Confirm Password</label>
                     <br/>
                     <input type="password" ref={passwordCheckRef} id='check'/>
+                    <br/>
+                    <input type="checkbox" /> <label>Acknowledge you have read our <Link href="/PrivacyPolicy" style={{color: "blue"}}>Privacy Policy</Link> and that we may use your email to promote services Impresario offers. </label>
+                <br/>
+                <input type="checkbox"/> <label>Acknowledge you have read about how to <Link href="/DeleteInstructions" style={{color: "blue"}}>delete your profile</Link> and unsubscribe from Impresario.</label>
                     </Fragment>
                     :null
                 }
@@ -119,11 +120,10 @@ async function createUser(e){
                 {message? <h2 className="whiteText">{message}</h2>:null}
 
         </form>
+        <h2 className="whiteText">Signup with Social Media</h2>
         <FacebookLogin/>
-        <div>
-            
-      
-    </div>
+
+           
         </div>
             
         </Fragment>

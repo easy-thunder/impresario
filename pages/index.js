@@ -18,9 +18,9 @@ export default function Home() {
     <>
       <Head>
         <title>Impresario Entrepreneurial Solutions</title>
-        <meta name="description" content="Denver's best web development site" />
+        <meta name="description" content="Denver's best web development service" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/public/images/ImpresarioLogo.png" />
         <link href="https://fonts.googleapis.com/css?family=Raleway:900" rel="stylesheet"/>
       </Head>
       <main className={`${styles.main}, hideOverflow`}>

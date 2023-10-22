@@ -29,15 +29,17 @@ export default NextAuth({
           throw new Error("Wrong Password")}
 
         client.close()
-        return{email: user.email}
+        return{
+          email: user.email,
+        }
 
         
       }
     }),
     FacebookProvider({
       clientId: process.env.FACEBOOK_ID,
-      clientSecret: process.env.FACEBOOK_SECRET
-    })
+      clientSecret: process.env.FACEBOOK_SECRET,
+    }),
   ], 
   // secret: process.env.NEXTAUTH_SECRET, //THIS IS DEFINED IN THE VERCEL ENV VARIABLES
 });

@@ -10,8 +10,7 @@ import { useSession, signOut } from "next-auth/react";
 export default function Logo({setModal, modal}){
     const{data: session, status} = useSession();
 
-    console.log(status)
-    console.log(session)
+
 
 
 
@@ -108,6 +107,10 @@ export default function Logo({setModal, modal}){
 
 {session ? 
     <div className={`${''}`}>
+<Link href={'/Profile'}> 
+<button className="button-64 smallerContainer">Profile</button>
+</Link>
+<span className="invisible">" "</span>
 <button className="button-64 smallerContainer" onClick={logOut}>SignOut</button>
 
 <span className="invisible">" "</span>

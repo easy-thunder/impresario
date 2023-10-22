@@ -13,12 +13,12 @@ if(req.method==='POST'){
     
     const email =  req.body.email;
     const password =  req.body.password;
-    const check =  req.body.check;
+    const checkPassword =  req.body.checkPassword;
     const hashedPassword = await hashPassword(password)
     
     
     
-    if(!email || !email.includes('@') || !password || password.trim().length<7 || !check===password ){
+    if(!email || !email.includes('@') || !password || password.trim().length<7 || !checkPassword===password ){
         res.status(422).json({message: "Invalid input - password should be seven characters long and valid email is needed or your password check failed.", status: 422})
         client.close()
         return
@@ -26,6 +26,9 @@ if(req.method==='POST'){
     /////// mongodb connection  ///////////////
     // wait for the connection to establish
     const client = await connectToDatabase()
+    if(client){
+        console.log(client)
+    }
     
     
     

@@ -7,7 +7,6 @@ function FacebookLogin() {
 
   return (
     <div>
-      <h1>Login to Your App</h1>
       <button onClick={handleFacebookLogin}>Login with Facebook</button>
     </div>
   );
