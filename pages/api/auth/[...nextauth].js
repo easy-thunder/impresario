@@ -3,6 +3,7 @@ import CredentialsProvider from 'next-auth/providers/credentials'
 import { connectToDatabase } from "@/lib/db";
 import { verifyPassword } from "./auth";
 import FacebookProvider from "next-auth/providers/facebook"
+import GoogleProvider from "next-auth/providers/google"
 require("dotenv").config();
 
 // import Credentials from "next-auth/providers/credentials";
@@ -40,6 +41,14 @@ export default NextAuth({
       clientId: process.env.FACEBOOK_ID,
       clientSecret: process.env.FACEBOOK_SECRET,
     }),
+    GoogleProvider({
+      clientId: process.env.GOOGLE_CLIENT,
+      clientSecret: process.env.GOOGLE_SECRET,
+      authorizationUrl:
+        'https://accounts.google.com/o/oauth2/auth?prompt=consent&access_type=offline',
+      scope: ['openid', 'profile', 'email'],
+    }),
+
   ], 
   // secret: process.env.NEXTAUTH_SECRET, //THIS IS DEFINED IN THE VERCEL ENV VARIABLES
 });

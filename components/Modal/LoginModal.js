@@ -3,6 +3,7 @@ import classes from "./modal.module.css"
 import { signIn } from "next-auth/react";
 import FacebookLogin from "../SignInButtons/FacebookLogin";
 import Link from "next/link";
+import GoogleLoginButton from "../SignInButtons/GoogleLogin";
 
 export default function LoginModal({title, confirmPassword, button, setModal}){
 
@@ -121,7 +122,8 @@ export default function LoginModal({title, confirmPassword, button, setModal}){
 
         </form>
         <h2 className="whiteText">Signup with Social Media</h2>
-        <FacebookLogin/>
+        {/* <FacebookLogin/> */}
+        <GoogleLoginButton/>
 
            
         </div>

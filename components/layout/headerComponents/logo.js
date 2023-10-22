@@ -11,7 +11,7 @@ export default function Logo({setModal, modal}){
     const{data: session, status} = useSession();
 
 
-
+console.log(session)
 
 
 

@@ -32,7 +32,7 @@ async function logOut(){
         
         
                 <div className="marginPastHeader whiteText"></div>
-                <h1 className="whiteText updatedCenter">Your Profile</h1>
+                <h1 className="whiteText updatedCenter">Welcome {session.user.name}</h1>
                 <div style={{backgroundColor: "white"}}>
                     <div style={{minHeight:"80vh"}}>
                         <p>This is a work in progress but here is a way to delete your profile:</p>
