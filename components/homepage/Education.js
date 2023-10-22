@@ -6,7 +6,7 @@ import LoginModal from "../Modal/LoginModal"
 export default function Education(){
     return(
         <Fragment>
-          <br/>
+          {/* <br/>
           <br/>
         <div className='updatedCenter whiteText'>
           <h2 className='center'>Impresario Education</h2>
@@ -33,7 +33,7 @@ export default function Education(){
             <h3 className='whiteText'>   Most Popular</h3>
             <div className={`${classes.frame} frame3`}></div>
             <p className='whiteText'>We will need an API call for this video</p>
-          </div>      </div>
+          </div>      </div> */}
         </Fragment>
     )
 }

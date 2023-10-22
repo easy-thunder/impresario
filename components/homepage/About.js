@@ -1,5 +1,6 @@
 import { Fragment } from 'react'
 import classes from "../../pages/home.module.css"
+import Link from 'next/link'
 
 
 
@@ -17,6 +18,9 @@ return  <div className='goLeftPhone'>
   <p>So I built Impresario, A way for your ideas to vibrate at the tone of Googles Search Engine Optimization</p>
   <p>Impresario gives the power for you to build your own site, or have it built for you. </p>
   <p>Let's take back business from large corporations and bring it back to you!</p>
+  {/* <Link> */}
+  {/* <button>See my Portfolio</button> */}
+  {/* </Link> */}
   </div>
 </div>
 <div className='pxSpacer'></div>

@@ -1,5 +1,5 @@
 import { Fragment, useState, useContext } from "react";
-import classes from "../../pages/Buy/BuildSite/BuildSite.module.css"
+import classes from "@/pages/Buy/BuildSite/BuildSite.module.css"
 import PurchaseModal from "../Modal/PurchaseModal";
 
 export default function SiteBuildingComponent(){
