@@ -1,6 +1,7 @@
 import { Fragment, useEffect, useRef, useState } from "react";
 import classes from "./modal.module.css"
 import { signIn } from "next-auth/react";
+import FacebookLogin from "../SignInButtons/FacebookLogin";
 
 
 export default function LoginModal({title, confirmPassword, button, setModal}){
@@ -23,17 +24,13 @@ export default function LoginModal({title, confirmPassword, button, setModal}){
         }
     },[])
 
-// if(button==="Login"){
-//     setIsLogin(()=>true)
-// }
-
-    // function switchAuthModeHandler(){
-    //     setIsLogin(isLogin=>!isLogin)
-    // }
 
 
 
-      async function createUser(e){
+
+
+
+async function createUser(e){
         e.preventDefault()
         setCalling(()=>true)
         const email = emailInputRef.current.value
@@ -55,7 +52,7 @@ export default function LoginModal({title, confirmPassword, button, setModal}){
         else{
             const checkPassword = passwordCheckRef.current.value
             const newUser={email:email, password:password, check:checkPassword}
-    try{
+        try{
         fetch('/api/auth/signup',{
             method: 'POST',
             body: JSON.stringify(newUser),
@@ -64,9 +61,8 @@ export default function LoginModal({title, confirmPassword, button, setModal}){
         .then((r)=> r.json())
         .then(data=> console.log(data.message))
         .then(setCalling(()=>false))
-        .then(setMessage(()=>"Sign in to access your account. This account already exists"))
+        .then(setMessage(()=>"Sign in to access your account."))
 
-        // .then(modalOffHelper())
 
 
         }
@@ -80,35 +76,6 @@ export default function LoginModal({title, confirmPassword, button, setModal}){
 }
 
 
-        // const newUserString = JSON.stringify(newUser)
-        // console.log(newUserString)
-
-
-
-
-
-    // async function submitHandler(e){
-    //     e.preventDefault()
-        
-    //     const enteredEmail = emailInputRef.current.value
-    //     const enteredPassword = passwordInputRef.current.value
-
-    //     const checkPassword = passwordCheckRef.current.value
-
-    //     if(isLogin){
-    //         // USER login
-    //     }
-    //     else{
-    //         try{
-
-    //             const result = await  createUser(enteredEmail, enteredPassword, checkPassword)
-    //         }catch(error){
-    //             console.log(error)
-    //             console.log(enteredEmail, enteredPassword, checkPassword)
-    //         }
-
-    //     }
-    // }
 
 
     function modalOffHelper(){
@@ -152,7 +119,11 @@ export default function LoginModal({title, confirmPassword, button, setModal}){
                 {message? <h2 className="whiteText">{message}</h2>:null}
 
         </form>
-           
+        <FacebookLogin/>
+        <div>
+            
+      
+    </div>
         </div>
             
         </Fragment>

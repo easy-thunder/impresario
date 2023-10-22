@@ -2,6 +2,7 @@ import NextAuth from "next-auth"
 import CredentialsProvider from 'next-auth/providers/credentials'
 import { connectToDatabase } from "@/lib/db";
 import { verifyPassword } from "./auth";
+import FacebookProvider from "next-auth/providers/facebook"
 require("dotenv").config();
 
 // import Credentials from "next-auth/providers/credentials";
@@ -32,9 +33,13 @@ export default NextAuth({
 
         
       }
+    }),
+    FacebookProvider({
+      clientId: process.env.FACEBOOK_ID,
+      clientSecret: process.env.FACEBOOK_SECRET
     })
   ], 
-  secret: process.env.NEXTAUTH_SECRET, //THIS IS DEFINED IN THE VERCEL ENV VARIABLES
+  // secret: process.env.NEXTAUTH_SECRET, //THIS IS DEFINED IN THE VERCEL ENV VARIABLES
 });
 
 
