@@ -5,7 +5,7 @@ import Link from 'next/link'
 
 
 export default function About(){
-return  <div className='goLeftPhone'>
+return  <div className='goLeftPhone hideOverFlow'>
 <h2 className='transitionCenter whiteText goLeftPhone'>About Impresario</h2>
 
 <div className={`${classes.leftRight} whiteText`}>
@@ -35,6 +35,8 @@ return  <div className='goLeftPhone'>
   <p>And become the cultivation of community that impresario is.</p>
   </div>
 </div>
+<br/>
+<br/>
 </div>
 
 }

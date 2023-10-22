@@ -23,7 +23,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
         <link href="https://fonts.googleapis.com/css?family=Raleway:900" rel="stylesheet"/>
       </Head>
-      <main className={styles.main}>
+      <main className={`${styles.main}, hideOverflow`}>
           
       <Landing /> 
     <div className='pxSpacer'></div>
