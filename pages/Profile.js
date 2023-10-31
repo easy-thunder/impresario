@@ -30,13 +30,15 @@ async function logOut(){
     return(
         <Fragment>
         
-        
+        {session? 
+        <Fragment>
                 <div className="marginPastHeader whiteText"></div>
                 <h1 className="whiteText updatedCenter">Welcome {session.user.name}</h1>
                 <div style={{backgroundColor: "white"}}>
                     <div style={{minHeight:"80vh"}}>
                         <p>This is a work in progress but here is a way to delete your profile:</p>
                         <button onClick={()=>checkDelete()}>Delete Profile</button>
+                        <img src={session.user.image} alt="User Image" />
                         {deleteToggle? <Fragment>
                             <p>Are you sure you want to delete?</p>
                             <button onClick={()=>deleteProfile()}>yes</button>
@@ -49,6 +51,13 @@ async function logOut(){
         
         
                 </div>
+                </Fragment>:
+                <Fragment>
+                     <div className="marginPastHeader whiteText"></div>
+                <h1 className="whiteText updatedCenter">You need to sign in to access this page</h1>
+                </Fragment>
+                
+                }
         
               
                 
