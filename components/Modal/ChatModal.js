@@ -32,7 +32,13 @@ export default function ChatModal() {
   // console.log(socket.id)
   if(socket){
     if(session){
-      socket.id="admin"
+      if(session.user.email==="jakediehl17@gmail.com"){
+        socket.id="admin"
+      }
+      else{
+
+        socket.id=session.user.email
+      }
     }
   }
 

@@ -11,7 +11,7 @@ export default function Landing(){
             <video loop  muted autoPlay id="bg-video" src='/public/VideoForImpresariov2.mp4'>
               <source src='/public/BackgroundImageForTitleImpresario.mp4' />
             </video>
-        <svg class="banner">
+        <svg className="banner">
         <defs>
     <pattern id="imagePattern" x="0%" y="0" width="200%" height="1">
       <image x="-5%" y="0" width="400" height="400" href="/public/images/raftingJake.jpg" />
