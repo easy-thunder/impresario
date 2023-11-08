@@ -8,17 +8,17 @@ require('dotenv').config()
  function useSocket(){
   const [socketIo,setSocketIo]= useState(null);
   useEffect(() => {
-    connectToSocket()
+    establishSocket()
 
   }, []);
-  async function connectToSocket(){
+  async function establishSocket(){
     const  socket = await io(process.env.HOST_URL, {
       path:'/api/socket',
     });
   setSocketIo(socket)
-  return () => {
-    socket.disconnect();
-  };
+  // return () => {
+  //   socket.disconnect();
+  // };
   }
   return socketIo;
 
