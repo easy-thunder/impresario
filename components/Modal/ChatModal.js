@@ -38,18 +38,18 @@ export default function ChatModal() {
   const socket =  useSocket();
   
   // console.log(socket.id)
-  if(socket){
-    console.log(socket.io.uri)
-    if(session){
-      if(session.user.email==="jakediehl17@gmail.com"){
-        socket.id="admin"
-      }
-      else{
+  // if(socket){
+  //   console.log(socket.io.uri)
+  //   if(session){
+  //     if(session.user.email==="jakediehl17@gmail.com"){
+  //       socket.id="admin"
+  //     }
+  //     else{
 
-        socket.id=session.user.email
-      }
-    }
-  }
+  //       socket.id=session.user.email
+  //     }
+  //   }
+  // }
 
   useEffect(() => {
     connectToSocket()
@@ -60,10 +60,10 @@ export default function ChatModal() {
  async function connectToSocket(){
   if(socket) {
     await socket.on('connect', () => {
-      console.log('connect');
+      console.log('connected');
     });
     socket.on('disconnect', () => {
-      console.log('disconnect');
+      console.log('disconnected');
     });
     socket.on("receive-message", (data) => {
       console.log(data)
