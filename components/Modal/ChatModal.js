@@ -12,13 +12,13 @@ require('dotenv').config()
 
   }, []);
   async function establishSocket(){
-    const  socket = await io(process.env.HOST_URL, {
+    const  socket = await io("https://impresario-six.vercel.app", {
       path:'/api/socket',
     });
   setSocketIo(socket)
-  // return () => {
-  //   socket.disconnect();
-  // };
+  return () => {
+    socket.disconnect();
+  };
   }
   return socketIo;
 
