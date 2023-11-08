@@ -12,8 +12,9 @@ require('dotenv').config()
 
   }, []);
   async function establishSocket(){
-    const  socket = await io("https://impresario-six.vercel.app", {
+    const  socket = await io(process.env.HOST_URL, {
       path:'/api/socket',
+      transports: ['polling', 'websocket'],
     });
   setSocketIo(socket)
   return () => {
