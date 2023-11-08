@@ -16,8 +16,8 @@ require('dotenv').config()
       path:'/api/socket',
       pingTimeout: 30000,  // Specify a longer ping timeout.
       pingInterval: 25000, // Specify a longer ping interval.
-      // transports: ['polling', 'websocket'], // Try polling first, then WebSocket
-      
+      transports: ['polling'], // Try polling first, then WebSocket
+
     });
   setSocketIo(socket)
   return () => {
