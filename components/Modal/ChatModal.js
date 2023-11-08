@@ -16,7 +16,8 @@ require('dotenv').config()
       path:'/api/socket',
       pingTimeout: 30000,  // Specify a longer ping timeout.
       pingInterval: 25000, // Specify a longer ping interval.
-      transports: ['polling'], // Try polling first, then WebSocket
+      
+      // transports: ['polling'], // Try polling first, then WebSocket
 
     });
   setSocketIo(socket)
@@ -37,19 +38,18 @@ export default function ChatModal() {
 
   const socket =  useSocket();
   
-  // console.log(socket.id)
-  // if(socket){
-  //   console.log(socket.io.uri)
-  //   if(session){
-  //     if(session.user.email==="jakediehl17@gmail.com"){
-  //       socket.id="admin"
-  //     }
-  //     else{
+  if(socket){
+    console.log(socket.io.uri)
+    if(session){
+      if(session.user.email==="jakediehl17@gmail.com"){
+        socket.id="admin"
+      }
+      else{
 
-  //       socket.id=session.user.email
-  //     }
-  //   }
-  // }
+        socket.id=session.user.email
+      }
+    }
+  }
 
   useEffect(() => {
     connectToSocket()
@@ -57,19 +57,19 @@ export default function ChatModal() {
   }, [socket]);
 
 
- async function connectToSocket(){
-  if(socket) {
-    await socket.on('connect', () => {
-      console.log('connected');
-    });
-    socket.on('disconnect', () => {
-      console.log('disconnected');
-    });
-    socket.on("receive-message", (data) => {
-      console.log(data)
-      setAllMessages((pre) => [...pre, data]);
-    });
-  }
+  async function connectToSocket() {
+    if (socket) {
+      await socket.on('connect', () => {
+        console.log('Connected');
+        socket.on('disconnect', () => {
+          console.log('Disconnected');
+        });
+        socket.on("receive-message", (data) => {
+          console.log(data);
+          setAllMessages((pre) => [...pre, data]);
+        });
+      });
+    }
   }
 
 

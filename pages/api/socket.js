@@ -7,7 +7,7 @@ export default function SocketHandler(req, res) {
     return;
   }
 
-  const io = new Server(res.socket.server, { path: '/api/socket', addTrailingSlash: false, transports:['polling'] });
+  const io = new Server(res.socket.server, { path: '/api/socket', addTrailingSlash: false });
   res.socket.server.io = io;
 
   io.on("connection", (socket) => {
