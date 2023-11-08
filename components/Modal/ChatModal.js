@@ -6,20 +6,27 @@ require('dotenv').config()
 
 
  function useSocket(){
-  const [socketIo,setSocketIo]= useState(null);
+   const [socketIo,setSocketIo]= useState(null);
+   const {data: session, status}= useSession();
   useEffect(() => {
     establishSocket()
 
+
   }, []);
+    
+
+
   async function establishSocket(){
     const  socket = await io(process.env.HOST_URL, {
       path:'/api/socket',
       pingTimeout: 30000,  // Specify a longer ping timeout.
       pingInterval: 25000, // Specify a longer ping interval.
-      
+
       // transports: ['polling'], // Try polling first, then WebSocket
 
     });
+    
+
   setSocketIo(socket)
   return () => {
     socket.disconnect();
@@ -32,24 +39,12 @@ require('dotenv').config()
 
 export default function ChatModal() {
 
-  const {data: session, status}= useSession();
   const [allMessages, setAllMessages] = useState([]);
   const [message, setMessage] = useState('');
 
   const socket =  useSocket();
   
-  if(socket){
-    console.log(socket.io.uri)
-    if(session){
-      if(session.user.email==="jakediehl17@gmail.com"){
-        socket.id="admin"
-      }
-      else{
 
-        socket.id=session.user.email
-      }
-    }
-  }
 
   useEffect(() => {
     connectToSocket()
