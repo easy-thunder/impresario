@@ -1,25 +1,11 @@
 "use client";
 import { Fragment, useEffect, useState } from "react";
 import { useSession } from "next-auth/react";
-import { io } from "socket.io-client";
 import ChatModal from "@/components/Modal/ChatModal";
 
 
-function useSocket(){
-  const [socketIo,setSocketIo]= useState(null);
-  useEffect(() => {
-    const  socket = io(process.env.HOST_URL, {
-        path:'/api/socket',
-       // transports: ["websocket"]
-      });
-    setSocketIo(socket)
-    return () => {
-      socket.disconnect();
-    };
-  }, []);
-  return socketIo;
 
-}
+
 
 
 
@@ -34,25 +20,9 @@ export default function AdminPage(){
     const [admin, setAdmin]=useState(false)
     const [users, setUsers]=useState([])
     const [userChat, setUserChat]=useState(null)
-    const [message, setMessage]= useState('')
-    const [allMessages, setAllMessages] = useState([]);
 
-    const socket = useSocket();
 
-    useEffect(() => {
-      if(socket) {
-        socket.on('connect', () => {
-          console.log('connect');
-        });
-        socket.on('disconnect', () => {
-          console.log('disconnect');
-        });
-        socket.on("receive-message", (data) => {
-          setAllMessages((pre) => [...pre, data]);
-        });
-      }
-      
-    }, [socket]);
+
   
 
 
@@ -84,16 +54,7 @@ export default function AdminPage(){
         })
       }
 
-      function sendMessage(e){
-        e.preventDefault();
 
-        console.log("emitted");
-        socket.emit("send-message", {
-          message
-        });
-
-        setMessage("");
-      }
 
 
 
@@ -109,7 +70,7 @@ export default function AdminPage(){
                         <img src={session.user.image} alt="User Image" />
                         <div className="flex">
 
-                        {users.map(user=>
+                        {users? users.map(user=>
                                 <Fragment key={user._id}>
                                     <div onClick={()=>openChat(user.email)} style={{cursor:"pointer"}} className="userCards">
 
@@ -122,7 +83,7 @@ export default function AdminPage(){
                                     </div>
                                 </Fragment>
                             
-                            )}
+                            ):null}
                             {userChat?  <ChatModal/>:null}
                             </div>
 

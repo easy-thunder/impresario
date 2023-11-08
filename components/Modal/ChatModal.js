@@ -2,23 +2,27 @@
 import { Fragment, useEffect, useState } from "react";
 import io from "socket.io-client";
 import { useSession } from "next-auth/react";
+require('dotenv').config()
 
-function useSocket(){
+
+ function useSocket(){
   const [socketIo,setSocketIo]= useState(null);
   useEffect(() => {
-    const  socket = io(process.env.HOST_URL, {
-        path:'/api/socket',
-      });
-    setSocketIo(socket)
-    return () => {
-      socket.disconnect();
-    };
+    connectToSocket()
+
   }, []);
+  async function connectToSocket(){
+    const  socket = await io(process.env.HOST_URL, {
+      path:'/api/socket',
+    });
+  setSocketIo(socket)
+  return () => {
+    socket.disconnect();
+  };
+  }
   return socketIo;
 
 }
-
-
 
 
 export default function ChatModal() {
@@ -31,6 +35,7 @@ export default function ChatModal() {
   
   // console.log(socket.id)
   if(socket){
+    console.log(socket.io.uri)
     if(session){
       if(session.user.email==="jakediehl17@gmail.com"){
         socket.id="admin"
