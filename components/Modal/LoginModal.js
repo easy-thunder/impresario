@@ -30,10 +30,12 @@ export default function LoginModal({title, confirmPassword, button, setModal}){
 
       async function createUser(e){
         e.preventDefault()
+
         setCalling(()=>true)
         const email = emailInputRef.current.value
         const password = passwordInputRef.current.value
 
+        
         if(isLogin){
             const result = await signIn('credentials', {
                 redirect: false,
@@ -59,6 +61,25 @@ export default function LoginModal({title, confirmPassword, button, setModal}){
         if (!response.ok) {
             throw new Error('Failed to sign up');
           }
+          const responseData = await response.json();
+          console.log(responseData)
+          if(responseData){
+            setMessage(()=>responseData.message)
+            setCalling(() => false);
+            setIsLogin(()=>true)
+            const result = await signIn('credentials', {
+                redirect: false,
+                email: email,
+                password: password,
+            })
+            setCalling(()=>false)
+            setError(()=>result.error)
+            if(result.status===200){
+                modalOffHelper()
+            }
+
+
+          }
 
 
 
@@ -67,7 +88,6 @@ export default function LoginModal({title, confirmPassword, button, setModal}){
         catch (error) {
             console.error('Error during signup:', error);
             setError(() => error.message);  // Assuming error.message contains the relevant error information
-            setCalling(() => false);
         }
 
     }
@@ -78,6 +98,7 @@ export default function LoginModal({title, confirmPassword, button, setModal}){
     function modalOffHelper(){
         setModal(()=>null)
         setError(()=>false)
+        setCalling(()=>false)
     }
 
 
@@ -117,7 +138,7 @@ export default function LoginModal({title, confirmPassword, button, setModal}){
             <input type="submit" value={calling? "Loading":button} disabled={calling? "disabled": null}/>
                 </div>
                 {error? <h2 className="red">{error}</h2>:null}
-                {message? <h2 className="whiteText">{message}</h2>:null}
+                {message? <h2 className="whiteText">{message} has signed up</h2>:null}
 
         </form>
         <h2 className="whiteText">Signup with Social Media</h2>
