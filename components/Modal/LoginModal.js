@@ -51,7 +51,7 @@ export default function LoginModal({title, confirmPassword, button, setModal}){
             const checkPassword = passwordCheckRef.current.value
             const newUser={email:email, password:password, checkPassword:checkPassword}
     try{
-        const response = fetch('/api/auth/signup',{
+        const response = await fetch('/api/auth/signup',{
             method: 'POST',
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify(newUser)
@@ -64,10 +64,10 @@ export default function LoginModal({title, confirmPassword, button, setModal}){
 
 
         }
-        catch(error){
-            setError(()=>error)
-            setCalling(()=>false)
-            
+        catch (error) {
+            console.error('Error during signup:', error);
+            setError(() => error.message);  // Assuming error.message contains the relevant error information
+            setCalling(() => false);
         }
 
     }
