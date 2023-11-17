@@ -53,6 +53,9 @@ export default function LoginModal({title, confirmPassword, button, setModal}){
             const checkPassword = passwordCheckRef.current.value
             const newUser={email:email, password:password, checkPassword:checkPassword}
     try{
+
+
+        
         const response = await fetch('/api/auth/signup',{
             method: 'POST',
             headers: {"Content-Type": "application/json"},

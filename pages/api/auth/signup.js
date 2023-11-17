@@ -2,45 +2,45 @@ import { connectToDatabase } from "@/lib/db";
 import { hashPassword } from "./auth";
 
 async function handler(req, res) {
-    if (req.method === 'POST') {
-        const email = req.body.email;
-        const password = req.body.password;
-        const checkPassword = req.body.checkPassword;
-        const hashedPassword = await hashPassword(password);
+    const email = req.body.email;
+    const password = req.body.password;
+    const checkPassword = req.body.checkPassword;
+    const hashedPassword = await hashPassword(password);
+
+    let client;
+    try {
+        client = await connectToDatabase();
+        const db = client.db();
 
         if (!email || !email.includes('@') || !password || password.trim().length < 7 || !checkPassword === password) {
             res.status(422).json({ message: "Invalid input - password should be seven characters long and valid email is needed or your password check failed.", status: 422 });
             return;
         }
 
-        let client;
-        try {
-            client = await connectToDatabase();
-            const db = client.db();
-
+        if (req.method === 'POST') {
+            // Check for existing user
             const existingUser = await db.collection('users').findOne({ email: email });
 
             if (existingUser) {
                 res.status(422).json({ message: `${existingUser.email} already exists, try logging in` });
-                return;
-            }
+            } else {
+                // Insert new user
+                const result = await db.collection('users').insertOne({
+                    email: email,
+                    password: hashedPassword,
+                    messages: [],
+                });
 
-            const result = await db.collection('users').insertOne({
-                email: email,
-                password: hashedPassword,
-                messages: [],
-            });
-
-            res.status(201).json({ message: `${email}` });
-        } catch (error) {
-            console.error('Error during signup:', error);
-            res.status(500).json({ message: 'Internal Server Error' });
-        } finally {
-            if (client) {
-                await client.close();
+                res.status(201).json({ message: `${email}` });
             }
         }
-        return;
+    } catch (error) {
+        console.error('Error during signup:', error);
+        res.status(500).json({ message: 'Internal Server Error' });
+    } finally {
+        if (client) {
+            await client.close();
+        }
     }
 }
 
