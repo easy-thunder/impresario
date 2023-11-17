@@ -3,11 +3,11 @@ import classes from "./logo.module.css"
 import Link from "next/link";
 import LoginModal from "@/components/Modal/LoginModal";
 import PurchaseModal from "@/components/Modal/PurchaseModal";
-import  useAuth from "@/pages/hooks/useAuth";
+import { useSession, signOut } from "next-auth/react";
 import ChatModal from "../../Modal/ChatModal";
 
 export default function Logo({setModal, modal}){
-    const { session, signOut } = useAuth();
+    const { data: session } = useSession();
     const [chat, setChat]=useState(false)
 
 

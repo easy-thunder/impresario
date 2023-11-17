@@ -6,8 +6,6 @@ import { Fragment, useEffect, useState } from "react";
 // import e from "express";
 // require('dotenv').config()
 import { useSession } from 'next-auth/react';
-import  useAuth  from '@/pages/hooks/useAuth';
-import { rose } from 'tailwindcss/colors';
 
 const fetcher = async (url) => {
   const response = await fetch(url);
@@ -24,7 +22,7 @@ const fetcher = async (url) => {
 
 export default function ChatModal({auth,usersEmail,usersMessages}) {
 
-  const { session } = useAuth();
+  const { data: session } = useSession();
   const [messages, setMessages] = useState([]);
   const [admin, setAdmin]= useState(false)
   const [messageError, setMessageError]=useState(null)

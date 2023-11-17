@@ -1,9 +1,8 @@
 import { Fragment } from "react"
-import  useAuth  from "./hooks/useAuth";
 import { useState } from "react";
-
+import { useSession } from "next-auth/react";
 export default  function Profile(){
-    const { session, isAuthenticated } = useAuth();
+    const { data: session } = useSession();
     const [deleteToggle, setDeleteToggle]= useState(false)
 
 async function logOut(){

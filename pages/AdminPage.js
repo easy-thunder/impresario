@@ -1,8 +1,6 @@
 "use client";
 import { Fragment, useEffect, useState } from "react";
 import ChatModal from "@/components/Modal/ChatModal";
-import  useAuth  from "./hooks/useAuth";
-
 import { useSession } from "next-auth/react";
 
 
@@ -14,7 +12,7 @@ export default function AdminPage(){
 
 
 
-    const { session } = useAuth();
+    const { data: session } = useSession();
     console.log(session)
     const [admin, setAdmin]=useState(false)
     const [users, setUsers]=useState([])
