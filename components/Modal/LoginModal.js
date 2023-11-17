@@ -69,6 +69,18 @@ export default function LoginModal({title, confirmPassword, button, setModal}){
           if(responseData){
             setMessage(()=>responseData.message)
             setCalling(() => false);
+            const result = await signIn('credentials', {
+                redirect: false,
+                email: email,
+                password: password,
+            })
+            setCalling(()=>false)
+            setError(()=>result.error)
+            if(result.status===200){
+                modalOffHelper()
+            }
+
+
           }
 
 
