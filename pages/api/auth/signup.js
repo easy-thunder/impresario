@@ -14,16 +14,15 @@ if(req.method==='POST'){
     const db=  client.db()
     const existingUser = await db.collection('users').findOne({email:email})
 
-    if(!email || !email.includes('@') || !password || password.trim().length<7 || !checkPassword===password ){
-       res.status(422).json({message: "Invalid input - password should be seven characters long and valid email is needed or your password check failed.", status: 422})
-       return
-   }
+//     if(!email || !email.includes('@') || !password || password.trim().length<7 || !checkPassword===password ){
+//        res.status(422).json({message: "Invalid input - password should be seven characters long and valid email is needed or your password check failed.", status: 422})
+//        return
+//    }
 
    if(existingUser){
        res.status(422).json({message:  `${existingUser.email} already exists try logging in`})
        return;
    }
-   else{
 
        
        try{
@@ -48,7 +47,6 @@ if(req.method==='POST'){
     }
 }
 
-}
 
 
 export default handler;
