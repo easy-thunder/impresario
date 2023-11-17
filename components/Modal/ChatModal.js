@@ -124,15 +124,28 @@ async function sendMessage(e) {
 
             {auth? <p>{usersEmail}</p>:null}
           <ul style={{ display: 'block', padding: 0, margin: 0 }}>
-  {messages.map((message, index) => (
-    <li key={index} style={{ display: 'block', marginBottom: '10px' }} className={message.admin? "adminMessage":"userMessage"}>
+            {messages? 
+            
+  
+    
+    messages.map((message, index) => (
+      <li key={index} style={{ display: 'block', marginBottom: '10px' }} className={message.admin? "adminMessage":"userMessage"}>
       {message.message}
-    </li>
-  ))}
+      </li>
+      ))
+      :null}
   {messageError? <p>messageError</p>:null}
 </ul>
+
+
+
+
   </Fragment>
-  :<p>You need to login to use ImpresarioChat</p>}
+
+  :<p>You need to login to use ImpresarioChat</p>
+  
+  
+  }
           </div>
           <form style={{ display: 'flex' }} onSubmit={sendMessage}>
             <input
