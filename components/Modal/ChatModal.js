@@ -41,7 +41,7 @@ export default function ChatModal({auth,usersEmail,usersMessages}) {
   if (error){console.log(error)}
   useEffect(() => {
     if (data) {
-      const processedMessages = data.messages.map(messageObj => {
+      const processedMessages = data.messages? data.messages.map(messageObj => {
         const isAdmin = messageObj.admin; // Check if the admin property is present
         return {
           message: messageObj.message,
@@ -52,7 +52,10 @@ export default function ChatModal({auth,usersEmail,usersMessages}) {
             // Add other styles as needed
           },
         };
-      });
+      }
+      )
+      :null
+      ;
   
       setMessages(processedMessages);
     }
