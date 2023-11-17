@@ -1,94 +1,137 @@
-'use client'
+// 'use client'
+import useSWR from 'swr'
 
 import { Fragment, useEffect, useState } from "react";
-import io from "socket.io-client";
-import { useSession } from "next-auth/react";
-require('dotenv').config()
+
+// import e from "express";
+// require('dotenv').config()
+import { useSession } from 'next-auth/react';
+import { useAuth } from '@/pages/hooks/useAuth';
+import { rose } from 'tailwindcss/colors';
+
+const fetcher = async (url) => {
+  const response = await fetch(url);
+  const data = await response.json();
+  return data;
+};
 
 
- function useSocket(){
-   const [socketIo,setSocketIo]= useState(null);
-   const {data: session, status}= useSession();
-  useEffect(() => {
-    establishSocket()
 
 
-  }, []);
-    
 
 
-  async function establishSocket(){
-    const  socket = await io(process.env.HOST_URL, {
-      path:'/api/socket',
 
 
-      // transports: ['polling'], // Try polling first, then WebSocket
+export default function ChatModal({auth,usersEmail,usersMessages}) {
 
-    });
-    
+  const { session } = useAuth();
+  const [messages, setMessages] = useState([]);
+  const [admin, setAdmin]= useState(false)
+  const [messageError, setMessageError]=useState(null)
+  useEffect(()=>{
 
-  setSocketIo(socket)
-  return () => {
-    socket.disconnect();
-  };
-  }
-  return socketIo;
-
-}
-
-
-export default function ChatModal() {
-
-  const [allMessages, setAllMessages] = useState([]);
-  const [message, setMessage] = useState('');
-
-  const socket =  useSocket();
-  
-
-
-  useEffect(() => {
-    connectToSocket()
-    
-  }, [socket]);
-
-
-  async function connectToSocket() {
-    if (socket) {
-      await socket.on('connect', () => {
-        console.log('Connected');
-        socket.on('disconnect', () => {
-          console.log('Disconnected');
-        });
-        socket.on("receive-message", (data) => {
-          console.log(data);
-          setAllMessages((pre) => [...pre, data]);
-        });
-      });
+    if(auth){
+      setAdmin(()=>true)
     }
-  }
+  },[])
+  // console.log(session.user.email)
+  ///////////////////////////////////////////////////
+  ///// useSWR Get Request:
+  const apiUrl = session?.user?.email ? `/api/Messaging/${session.user.email}` : null;
 
-
+  const { data, error } = useSWR(apiUrl, fetcher, {refreshInterval: 5000});
+  if (error){console.log(error)}
+  useEffect(() => {
+    if (data) {
+      const processedMessages = data.messages.map(messageObj => {
+        const isAdmin = messageObj.admin; // Check if the admin property is present
+        return {
+          message: messageObj.message,
+          admin: isAdmin,
+          style: {
+            // Define styles based on the isAdmin condition
+            backgroundColor: isAdmin ? 'green' : 'red',
+            // Add other styles as needed
+          },
+        };
+      });
   
+      setMessages(processedMessages);
+    }
+  }, [data]);
+///////////////////////////////////////////////////////
 
-  function sendMessage(e){
-    e.preventDefault();
-    console.log("emitted");
-    socket.emit("send-message", {
-      message
+
+
+
+
+
+
+
+
+  const [message, setMessage] = useState('');
+  // const [eventData, setEventData] = useState({
+  //   eventType: 'messageSend',
+  //   data: 'someData',
+  // });
+
+// console.log(messageData)
+
+////////////////////////
+
+
+
+
+/////////////////////////////////////
+  
+async function sendMessage(e) {
+  e.preventDefault();
+  console.log(message);
+
+  try {
+    const response = await fetch(`/api/Messaging/${session.user.email}`, {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ message: message, admin: admin }),
     });
-    setMessage("");
-  }
-  
 
+    if (response.ok) {
+      const data = await response.json();
+      console.log(data);
+
+      // Update the state only after the fetch is successful
+      setMessages([...messages, {message:message,admin:false}]);
+      setMessage(() => '');
+
+    } else {
+      console.log("Failed to send message");
+    }
+  } catch (error) {
+    setMessageError(()=>error);
+  }
+}
+  
+  
 
   return (
     <Fragment>
       <div className="modalBorder">
         <div style={{ backgroundColor: 'white' }}>
-          <div style={{ minHeight: '6vh', marginTop: '2em' }}>
-            {allMessages.map((message, index) => (
-              <p key={index}>{message.message}</p>
-            ))}
+          <div style={{ minHeight: '6vh', marginTop: '2em' }} className='messageContainer'>
+            {session?
+            <Fragment>
+
+            {auth? <p>{usersEmail}</p>:null}
+          <ul style={{ display: 'block', padding: 0, margin: 0 }}>
+  {messages.map((message, index) => (
+    <li key={index} style={{ display: 'block', marginBottom: '10px' }} className={message.admin? "adminMessage":"userMessage"}>
+      {message.message}
+    </li>
+  ))}
+  {messageError? <p>messageError</p>:null}
+</ul>
+  </Fragment>
+  :<p>You need to login to use ImpresarioChat</p>}
           </div>
           <form style={{ display: 'flex' }} onSubmit={sendMessage}>
             <input
@@ -115,7 +158,9 @@ export default function ChatModal() {
               }}
             />
           </form>
-        </div>
+
+
+       </div>
       </div>
     </Fragment>
   );

@@ -1,9 +1,9 @@
 "use client";
 import { Fragment, useEffect, useState } from "react";
-import { useSession } from "next-auth/react";
 import ChatModal from "@/components/Modal/ChatModal";
+import { useAuth } from "./hooks/useAuth";
 
-
+import { useSession } from "next-auth/react";
 
 
 
@@ -14,9 +14,8 @@ export default function AdminPage(){
 
 
 
-    
-
-    const {data: session, status}= useSession();
+    const { session } = useAuth();
+    console.log(session)
     const [admin, setAdmin]=useState(false)
     const [users, setUsers]=useState([])
     const [userChat, setUserChat]=useState(null)
@@ -48,9 +47,11 @@ export default function AdminPage(){
     
     
 
-    function openChat(email){
+    function openChat(email, messages){
         setUserChat({
             email: email,
+            messages: messages,
+            auth: true
         })
       }
 
@@ -84,7 +85,7 @@ export default function AdminPage(){
                                 </Fragment>
                             
                             ):null}
-                            {userChat?  <ChatModal/>:null}
+                            {userChat?  <ChatModal auth={userChat.auth} usersEmail={userChat.email} usersMessages={userChat.messages}/>:null}
                             </div>
 
 

@@ -50,17 +50,16 @@ export default function LoginModal({title, confirmPassword, button, setModal}){
         else{
             const checkPassword = passwordCheckRef.current.value
             const newUser={email:email, password:password, checkPassword:checkPassword}
-            console.log(email, password, checkPassword)
     try{
-        fetch('/api/auth/signup',{
+        const response = fetch('/api/auth/signup',{
             method: 'POST',
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify(newUser)
         })
-        .then((r)=> r.json())
-        .then(data=> console.log(data.message))
-        .then(setCalling(()=>false))
-        .then(setMessage(()=>"Sign in to access your account. This account already exists"))
+        if (!response.ok) {
+            throw new Error('Failed to sign up');
+          }
+
 
 
 
@@ -123,7 +122,7 @@ export default function LoginModal({title, confirmPassword, button, setModal}){
         </form>
         <h2 className="whiteText">Signup with Social Media</h2>
         {/* <FacebookLogin/> */}
-        <GoogleLoginButton/>
+        {/* <GoogleLoginButton/> */}
 
            
         </div>

@@ -2,11 +2,14 @@ import Footer from "./Footer";
 import MainHeader from "./headerComponents/mainHeader"
 import { useState } from "react";
 import LoginModal from "../Modal/LoginModal";
+import { useSession } from 'next-auth/react';
+import ChatModal from "../Modal/ChatModal";
 
 const {Fragment}= require('react');
 
 
 export default function Layout(props){
+const { data: session, status } = useSession();
 const [modal, setModal]=useState(null)
 let modalProperties={}
 

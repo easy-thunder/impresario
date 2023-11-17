@@ -26,9 +26,7 @@ if(req.method==='POST'){
     /////// mongodb connection  ///////////////
     // wait for the connection to establish
     const client = await connectToDatabase()
-    if(client){
-        console.log(client)
-    }
+
     
     
     
@@ -48,7 +46,8 @@ if(req.method==='POST'){
         
          const result = await db.collection('users').insertOne({
             email: email,
-            password: hashedPassword
+            password: hashedPassword,
+            messages: ["Welcome To Impresario Chat"],
          })
             
             ///////local connection///////////////
