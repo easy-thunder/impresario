@@ -1,11 +1,7 @@
 import { connectToDatabase } from "@/lib/db";
-import {  MongoClient } from "mongodb"
 
 import { hashPassword } from "./auth";
-// import {readFileSync} from 'fs'
-// import {writeFileSync} from 'fs'
-// import fs from 'fs'
-// import path from 'path'
+
  async function handler(req, res){
 
 if(req.method==='POST'){
@@ -38,29 +34,30 @@ if(req.method==='POST'){
     if(existingUser){
         //note that you still have to access .email as the findOne returns the whole existing user not just the email
         res.status(422).json({message:  `${existingUser.email} already exists try logging in`})
-        client.close()
         return;
     }
 
            
-        
-         const result = await db.collection('users').insertOne({
-            email: email,
-            password: hashedPassword,
-            messages: ["Welcome To Impresario Chat"],
-         })
-            
-            ///////local connection///////////////
+        try{
 
-            // const filePath = path.join(process.cwd(),'data', 'login-data.json')
-            // const jsonData = readFileSync(filePath)
-            // const data = JSON.parse(jsonData)
-            // data.push(newUser)
-            // writeFileSync(filePath, JSON.stringify(data))
+            const result = await db.collection('users').insertOne({
+                email: email,
+                password: hashedPassword,
+                messages: [],
+            })
+            
+
             
             res.status(201).json({message: `${email}`, feedback: email})
+        }
+        catch(error){
+            console.error('Error during signup:', error);
+            res.status(500).json({message: 'Internal Server Error'});
+        }
+        finally{
+            if (client){client.close()}
+        }
             
-        client.close()
         }
 
 }
