@@ -515,7 +515,19 @@ svg{
   z-index: 2;
   position: absolute;
 }
+.chatIcon{
+  position: fixed;
+  margin-top: 90vh;
+  margin-left:87vw;
+  width: 3rem;
+  height: 3rem;
+  color:  #ce6d6d; /* Set the desired background color */
+  border-radius: 50%; /* Optional: To make it circular */
+  padding: 1rem; /* Optional: Adjust padding as needed */
+  cursor: pointer; /* Optional: Add a pointer cursor for better usability */
+  animation: bounce 2s infinite;
 
+}
 @media (max-width: 768px) {
   /* CSS styles for phone-sized screens */
   #impresarioTitle {
@@ -549,7 +561,12 @@ svg{
 .modalBorder{
   max-width:90%;
 }
+.chatIcon{
+  margin-left:82vw;
+  width: 2rem;
+  height: 2rem;
 
+}
 
 }
 
@@ -595,19 +612,7 @@ svg{
 
 
 
-.chatIcon{
-  position: fixed;
-  margin-top: 90vh;
-  margin-left:93vw;
-  width: 3rem;
-  height: 3rem;
-  color:  #ce6d6d; /* Set the desired background color */
-  border-radius: 50%; /* Optional: To make it circular */
-  padding: 1rem; /* Optional: Adjust padding as needed */
-  cursor: pointer; /* Optional: Add a pointer cursor for better usability */
-  animation: bounce 2s infinite;
 
-}
 
 @keyframes bounce {
   0%, 20%, 50%, 80%, 100% {
