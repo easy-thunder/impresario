@@ -88,6 +88,7 @@ export default function LoginModal({title, confirmPassword, button, setModal}){
         catch (error) {
             console.error('Error during signup:', error);
             setError(() => error.message);  // Assuming error.message contains the relevant error information
+            setCalling(()=>false)
         }
 
     }
