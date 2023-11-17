@@ -21,12 +21,12 @@ async function handler(req, res) {
     if (req.method === 'POST') {
         try {
 
-            // const existingUser = await db.collection('users').findOne({ email: email });
+            const existingUser = await db.collection('users').findOne({ email: email });
 
-            // if (existingUser) {
-            //     res.status(422).json({ message: `${existingUser.email} already exists, try logging in` });
-            //     return;
-            // }
+            if (existingUser) {
+                res.status(422).json({ message: `${existingUser.email} already exists, try logging in` });
+                return;
+            }
 
             const result = await db.collection('users').insertOne({
                 email: email,
