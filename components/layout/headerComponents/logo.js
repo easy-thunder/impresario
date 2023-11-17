@@ -3,7 +3,7 @@ import classes from "./logo.module.css"
 import Link from "next/link";
 import LoginModal from "@/components/Modal/LoginModal";
 import PurchaseModal from "@/components/Modal/PurchaseModal";
-import { useAuth } from "@/pages/hooks/useAuth";
+import  useAuth from "@/pages/hooks/useAuth";
 import ChatModal from "../../Modal/ChatModal";
 
 export default function Logo({setModal, modal}){

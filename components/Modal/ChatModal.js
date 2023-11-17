@@ -6,7 +6,7 @@ import { Fragment, useEffect, useState } from "react";
 // import e from "express";
 // require('dotenv').config()
 import { useSession } from 'next-auth/react';
-import { useAuth } from '@/pages/hooks/useAuth';
+import  useAuth  from '@/pages/hooks/useAuth';
 import { rose } from 'tailwindcss/colors';
 
 const fetcher = async (url) => {

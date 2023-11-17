@@ -1,5 +1,5 @@
 import { Fragment } from "react"
-import { useAuth } from "./hooks/useAuth";
+import  useAuth  from "./hooks/useAuth";
 import { useState } from "react";
 
 export default  function Profile(){

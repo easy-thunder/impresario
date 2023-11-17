@@ -1,7 +1,7 @@
 "use client";
 import { Fragment, useEffect, useState } from "react";
 import ChatModal from "@/components/Modal/ChatModal";
-import { useAuth } from "./hooks/useAuth";
+import  useAuth  from "./hooks/useAuth";
 
 import { useSession } from "next-auth/react";
 
