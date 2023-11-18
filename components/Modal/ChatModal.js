@@ -20,7 +20,7 @@ const fetcher = async (url) => {
 
 
 
-export default function ChatModal({auth,usersEmail,usersMessages}) {
+export default function ChatModal({auth,userEmail,usersMessages}) {
 
   const { data: session } = useSession();
   const [messages, setMessages] = useState([]);
@@ -35,10 +35,15 @@ export default function ChatModal({auth,usersEmail,usersMessages}) {
   // console.log(session.user.email)
   ///////////////////////////////////////////////////
   ///// useSWR Get Request:
-  const apiUrl = session?.user?.email ? `/api/Messaging/${session.user.email}` : null;
+
+  let apiUrl;
+  if(!auth){ apiUrl = session?.user?.email ? `/api/Messaging/${session.user.email}` : null;}
+  if(auth){apiUrl = `api/Messaging/${userEmail}`}
 
   const { data, error } = useSWR(apiUrl, fetcher, {refreshInterval: 5000});
   if (error){console.log(error)}
+
+
   useEffect(() => {
     if (data) {
       const processedMessages = data.messages? data.messages.map(messageObj => {
@@ -122,7 +127,7 @@ async function sendMessage(e) {
             {session?
             <Fragment>
 
-            {auth? <p>{usersEmail}</p>:null}
+            {auth? <p>{userEmail}</p>:null}
           <ul style={{ display: 'block', padding: 0, margin: 0 }}>
             {messages? 
             

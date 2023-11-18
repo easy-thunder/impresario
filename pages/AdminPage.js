@@ -83,7 +83,7 @@ export default function AdminPage(){
                                 </Fragment>
                             
                             ):null}
-                            {userChat?  <ChatModal auth={userChat.auth} usersEmail={userChat.email} usersMessages={userChat.messages}/>:null}
+                            {userChat?  <ChatModal auth={userChat.auth} userEmail={userChat.email} userMessages={userChat.messages}/>:null}
                             </div>
 
 
