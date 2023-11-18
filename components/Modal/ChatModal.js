@@ -26,6 +26,11 @@ export default function ChatModal({auth,userEmail,usersMessages}) {
   const [messages, setMessages] = useState([]);
   const [admin, setAdmin]= useState(false)
   const [messageError, setMessageError]=useState(null)
+  let apiUrl;
+  if(!auth){ apiUrl = session?.user?.email ? `/api/Messaging/${session.user.email}` : null;}
+  if(auth){apiUrl = `/api/Messaging/${userEmail}`}
+
+
   useEffect(()=>{
 
     if(auth){
@@ -36,9 +41,6 @@ export default function ChatModal({auth,userEmail,usersMessages}) {
   ///////////////////////////////////////////////////
   ///// useSWR Get Request:
 
-  let apiUrl;
-  if(!auth){ apiUrl = session?.user?.email ? `/api/Messaging/${session.user.email}` : null;}
-  if(auth){apiUrl = `api/Messaging/${userEmail}`}
 
   const { data, error } = useSWR(apiUrl, fetcher, {refreshInterval: 5000});
   if (error){console.log(error)}
@@ -95,7 +97,7 @@ async function sendMessage(e) {
   console.log(message);
 
   try {
-    const response = await fetch(`/api/Messaging/${session.user.email}`, {
+    const response = await fetch(`${apiUrl}`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ message: message, admin: admin }),
