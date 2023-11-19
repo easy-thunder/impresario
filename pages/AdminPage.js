@@ -51,52 +51,50 @@ export default function AdminPage(){
             messages: messages,
             auth: true
         })
+        const action="HIDESHOWCHAT"
+        fetch(`/api/auth/UserIndividualActions/${email}`,
+       { method:"PATCH",
+        headers:{'Content-Type':"application/json"},
+        body:JSON.stringify({action})
+
+        }
+
+        )
       }
 
 
-
+      const sortedUsers = users.sort((a,b)=>{return a.viewedChat - b.viewedChat})
 
 
 
 
     
     return <Fragment>
-        {admin?       <Fragment>
+        {admin?   
+        
+            <Fragment>
                 <div className="marginPastHeader whiteText"></div>
                 <h1 className="whiteText updatedCenter">Welcome {session.user.name}</h1>
                 <div style={{backgroundColor: "white"}}>
                     <div style={{minHeight:"80vh"}}>
                         <img src={session.user.image} alt="User Image" />
-                        <div className="flex">
+                        <div className="flex" style={{flexDirection:"column"}}>
 
-                        {users? users.map(user=>
+                            {sortedUsers? sortedUsers.map(user=>
                                 <Fragment key={user._id}>
-                                    <div onClick={()=>openChat(user.email)} style={{cursor:"pointer"}} className="userCards">
+                                    <div onClick={()=>openChat(user.email)} style={{cursor:"pointer", color: user.viewedChat ? "red":null, backgroundColor: user.viewedChat ? "green":null }} className="userCards">
 
-                                <h3>{user.email}</h3>
-                                
-
-
-
-
+                                        <h3>{user.email}</h3>
+                                        
                                     </div>
                                 </Fragment>
                             
                             ):null}
                             {userChat?  <ChatModal auth={userChat.auth} userEmail={userChat.email} userMessages={userChat.messages}/>:null}
                             </div>
-
-
-                        
-
-
                     </div>
-
-
-        
-        
                 </div>
-                </Fragment>:null}
+            </Fragment>:null}
 
                 
         

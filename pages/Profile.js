@@ -13,7 +13,7 @@ async function logOut(){
     function deleteProfile(){
 
         
-        fetch(`/api/auth/DeleteProfile/${encodeURIComponent(session.user.email)}`,{method:"DELETE"})
+        fetch(`/api/auth/UserIndividualActions/${encodeURIComponent(session.user.email)}`,{method:"DELETE"})
         // .then(logOut())
         .then(r=>r.json())
         .then(data=>console.log(data))
