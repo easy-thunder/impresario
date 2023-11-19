@@ -1,4 +1,7 @@
 import { connectToDatabase } from "@/lib/db";
+import nodemailer from 'nodemailer'
+require('dotenv').config()
+
 
 
 
@@ -34,6 +37,7 @@ export default async function handler(req,res){
         try {
             const result = await collection.updateOne({ email: email }, { $set: { viewedChat: true } });
             if (result.modifiedCount === 1) {
+                sendEmailNotification(email)
                 res.status(200).json({ message: "Chat updated successfully" });
             } else {
                 res.status(404).json({ message: "User not found" });
@@ -42,7 +46,7 @@ export default async function handler(req,res){
             res.status(500).json({ message: "Internal Server Error" });
         }
 
-        
+
     }
     
     if (req.method==="PATCH" && req.body.action === "HIDESHOWCHAT"){
@@ -59,6 +63,33 @@ export default async function handler(req,res){
         
     }
     client.close();
+
+
+    function sendEmailNotification(userEmail) {
+        console.log("trying to email", userEmail)
+        const transporter = nodemailer.createTransport({
+            service: 'gmail',
+            auth: {
+                user: 'jddiehl17@gmail.com', // Replace with your email
+                pass: `${process.env.GOOGLE_MAILER}`,       // Replace with your email password or use an app-specific password
+            },
+        });
+    
+        const mailOptions = {
+            from: 'jddiehl17@gmail.com',   // Replace with your email
+            to: 'jddiehl17@gmail.com',     // Replace with your email
+            subject: 'Chat Application Notification',
+            text: `User with email ${userEmail} has opened the chat application.`,
+        };
+    
+        transporter.sendMail(mailOptions, (error, info) => {
+            if (error) {
+                console.error('Error sending email:', error);
+            } else {
+                console.log('Email sent:', info.response);
+            }
+        });
+    }
     
 }
 
