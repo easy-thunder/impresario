@@ -1,9 +1,16 @@
-import { Fragment, useState, useContext } from "react";
+import { Fragment, useState, useContext, useEffect } from "react";
 import classes from "@/pages/Buy/BuildSite/BuildSite.module.css"
 import PurchaseModal from "../Modal/PurchaseModal";
+import { productionBrowserSourceMaps } from "@/next.config";
+
+const stripe = require('stripe')('sk_test_51MTKZtAdCijzaWdMbFKg2sW20PCV5PQlshcXg3JqxZWqDhrtFCXGBZoPTgRakE2AdqMNN8r4KmvUsx9ejB58wys000pY1kQMEM');
+
 
 export default function SiteBuildingComponent(){
     const [modal, setModal]= useState(null)
+    const [products, setProducts]= useState([])
+
+
     function staticSiteModal(){
         setModal(()=>"staticSite")
     }
@@ -19,34 +26,82 @@ function fullStackModal(){
         setModal(()=>"fullStackPlus")
     }
 
+     function getProducts(){
+        fetch('/api/checkout_sessions')
+        .then((r)=>{if(r.ok){
+            console.log("r is okay")
+            return r.json()}
+            else{console.log('r is not okay')}
+        
+        })
+        .then((data)=>{
+            console.log(data.message)
+            setProducts(()=>data.message)
+            
+    })
+    }
+
+
+
+
+    useEffect(()=>{
+        getProducts()
+    },[])
+
+    const staticSiteAddOns=products.filter(product=>{
+        if(product.unit_label==="staticOnly"||product.unit_label==="allServices"||product.unit_label==="Static Site"){return product}
+    })
+
+    
+    const fullStackAddOns=products.filter(product=>{
+        if(product.unit_label==="allServices"||product.unit_label==="fullStack" || product.unit_label==="FullStack"){return product}
+    })
+    if(products){
+    }
+
+    const fullStackPlusAddOns= products.filter(product=>{
+        if(product.unit_label==="allServices"|| product.unit_label==="FullStack+"){return product}
+    })
+
+    console.log(fullStackPlusAddOns)
 
     let modalProperties={}
+    //I realize now after setting up this mach data that I could have just fetch requested the Stripe
+    //data. However, I wanted to get this done and move on to other projects instead of reformatting.
+    // Thus this is why my services are hard coded in.
 
     if(modal==="staticSite"){
         modalProperties={
             title: "Static Site",
-            paidOptions:["Stripe", "Thryv", "Advanced Search", "Google Maps", "Animations", "Content Generation", "Additional Sections"],
-            paidDescriptions:["Automatic payment system for your business.", "Automatic scheduling system for your business.", "Get a search bar for your products or services that filter and sort.", "Get google maps locations on your website- useful for a mobile business.", "Add small animations to your site to make them more engaging.", "Generate content for your site to promote traffic flow.", "Get more sections for your website."],
-            paidPrice: [249.99, 249.99, 99.85, 149.99, 149.99, 149.99, 299.85],
-            initialPrice:999.85
+            // paidOptions:["Stripe", "Thryv", "Advanced Search", "Google Maps", "Animations", "Content Generation", "Additional Sections"],
+            // payCodes:['prod_P2gNnvePdv0g4G',"prod_P2gMOLiPujnmXB","prod_P2gMOhdZjKgNxr", "prod_P2gIjIiPgHiLbV", "prod_P2gLImTpSzIMlp", "prod_P2gLwYwb9lWRN4","prod_P2gLlfNcbkofvD"],
+            // paidDescriptions:["Automatic payment system for your business.", "Automatic scheduling system for your business.", "Get a search bar for your products or services that filter and sort.", "Get google maps locations on your website- useful for a mobile business.", "Add small animations to your site to make them more engaging.", "Generate content for your site to promote traffic flow.", "Get more sections for your website."],
+            // paidPrice: [249.99, 249.99, 99.85, 149.99, 149.99, 149.99, 299.85],
+            // initialPrice:999.85
+            options: staticSiteAddOns
+            
         }
     }
     if(modal==="fullStack"){
         modalProperties={
-            title:"Full fullStack",
-            paidOptions:["File Upload", "Sessions and Cookies", "Chat", "Automated Emails", "Google Maps", "Animations", "Content Generation", "Additional Sections"],
-            paidDescriptions:["Give your users the ability to upload their files to your website.","Make it so your customer can refresh the website and not be logged out.", "Have your users be able to contact you instantly in your website.", "Be able to reach out to your customers for customer retention.", "Get google maps locations on your website- useful for a mobile business.", "Generate content for your site to promote traffic flow.","Get more sections for your website." ],
-            paidPrice:[699.99,299.99,699.99, 499.99,149.99,149.99,149.99,419.85],
-            initialPrice:2299.99
+            title:"FullStack",
+            // paidOptions:["File Upload", "Sessions and Cookies", "Chat", "Automated Emails", "Google Maps", "Animations", "Content Generation", "Additional Sections"],
+            // payCodes:["prod_P2gK1BjLkKVLBT","prod_P2gJ9JdGqt4d4M","prod_P2gJy6XtcROV6P","prod_P2gJTPF7qAfeh5", "prod_P2gIjIiPgHiLbV", "prod_P2gLImTpSzIMlp", "prod_P2gLwYwb9lWRN4","prod_P2gLlfNcbkofvD"],
+            // paidDescriptions:["Give your users the ability to upload their files to your website.","Make it so your customer can refresh the website and not be logged out.", "Have your users be able to contact you instantly in your website.", "Be able to reach out to your customers for customer retention.", "Get google maps locations on your website- useful for a mobile business.", "Generate content for your site to promote traffic flow.","Get more sections for your website." ],
+            // paidPrice:[699.99,299.99,699.99, 499.99,149.99,149.99,149.99,419.85],
+            // initialPrice:2299.99
+            options: fullStackAddOns
         }
     }
     if(modal==="fullStackPlus"){
         modalProperties={
-            title: "Full Stack+",
-            paidOptions:["Google Maps", "Animations", "Additional Sections"],
-            paidDescriptions:["Get google maps locations on your website- useful for a mobile business.", "Add small animations to your site to make them more engaging.","Get more sections for your website."],
-            paidPrice:[149.99,149.99,419.85],
-            initialPrice:4499.85
+            title: "FullStack+",
+            // paidOptions:["Google Maps", "Animations", "Additional Sections"],
+            // payCodes:['prod_P2gIjIiPgHiLbV','prod_P2gLImTpSzIMlp','prod_P2gLlfNcbkofvD'],
+            // paidDescriptions:["Get google maps locations on your website- useful for a mobile business.", "Add small animations to your site to make them more engaging.","Get more sections for your website."],
+            // paidPrice:[149.99,149.99,419.85],
+            // initialPrice:4499.85,
+            options: fullStackPlusAddOns
         }
     }
 
@@ -144,7 +199,7 @@ className="center">purchase</button>
         </div>
 
         {modal?
-        <PurchaseModal initialPrice={modalProperties.initialPrice} title={modalProperties.title} paidOptions={modalProperties.paidOptions} paidPrice={modalProperties.paidPrice} paidDescriptions={modalProperties.paidDescriptions} setModal={setModal} />
+        <PurchaseModal  setModal={setModal} title={modalProperties.title} options={modalProperties.options}/>
          :null}
         
     </Fragment>)}
