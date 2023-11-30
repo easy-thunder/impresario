@@ -30,10 +30,10 @@ export default async function handler(req, res) {
         };
       }));
   
-      res.status(200).json({ message: productsWithPrices });
+      return res.status(200).json({ message: productsWithPrices });
     } catch (error) {
       console.error('Error fetching products:', error.message);
-      res.status(500).json({ error: 'Internal Server Error' }); // Send an appropriate error response
+     return res.status(500).json({ error: 'Internal Server Error' }); // Send an appropriate error response
     }
   }
 
