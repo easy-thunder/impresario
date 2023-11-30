@@ -16,7 +16,7 @@ export default async function handler(req, res) {
   // await cors(req,res);
   
   if(req.method==="GET"){
-    // try{
+    try{
 
       const products = await stripe.products.list({
         limit: 15,
@@ -34,8 +34,8 @@ export default async function handler(req, res) {
 
       
       res.status(200).json({ message: productsWithPrices });
-    // }
-    // catch(error){console.error('Error fetching products:', error.message); throw error;}
+    }
+    catch(error){console.error('Error fetching products:', error.message); throw error;}
   } 
 
 
