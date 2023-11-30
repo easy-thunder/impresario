@@ -15,14 +15,12 @@ export default async function handler(req, res) {
 
   // await cors(req,res);
   
-  if(req.method==="GET"){
-    try{
-
+  if (req.method === "GET") {
+    try {
       const products = await stripe.products.list({
         limit: 15,
       });
-      // console.log(products)
-      
+  
       const productsWithPrices = await Promise.all(products.data.map(async (product) => {
         const price = await stripe.prices.retrieve(product.default_price);
         return {
@@ -31,12 +29,13 @@ export default async function handler(req, res) {
           currency: price.currency,
         };
       }));
-
-      
+  
       res.status(200).json({ message: productsWithPrices });
+    } catch (error) {
+      console.error('Error fetching products:', error.message);
+      res.status(500).json({ error: 'Internal Server Error' }); // Send an appropriate error response
     }
-    catch(error){console.error('Error fetching products:', error.message); throw error;}
-  } 
+  }
 
 
 
