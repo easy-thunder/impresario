@@ -470,7 +470,7 @@ svg{
 }
 
 #impresarioTitle{
-  font-size: 120px;
+  font-size: 100px;
   letter-spacing: 16px;
   text-transform: uppercase;
   font-family: Raleway;
@@ -500,8 +500,25 @@ svg{
   mask:url("#mask");
   fill:rgb(255, 255, 255);
   y:15%;
-
+  height:100%;
+  width:100vw;
+  rx:100;
+  ry:100;
+}
+.banner{
   
+}
+
+
+@media(min-width: 1000px){
+  #mask-bg{
+    width:70vw;
+    x:15%;
+  }
+
+  #myIntroPhoto{
+    cx:30vw;
+  }
 }
 
 #siteIntroductoryStatement{

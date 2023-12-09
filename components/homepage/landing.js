@@ -22,7 +22,7 @@ export default function Landing(){
             <text id="impresarioTitle" x="50%" y="25%" textAnchor='middle' dominantBaseline="central">Impresario</text>
             <text id="siteIntroductoryStatement" x="50%" y="35%" textAnchor='middle' dominantBaseline="central" >Design . Develop . Dream</text>
           </mask>
-          <rect width="100%" height="100%" id="mask-bg" rx={100} ry={100}> </rect>
+          <rect id="mask-bg"> </rect>
           <circle id="myIntroPhoto" cx="20%" cy="60%" r="150" fill="url(#imagePattern)"  />
           <text className="theTextForLandingPage" x="60%" y="55%" textAnchor="middle" dominantBaseline="central">Bring harmony to your Entrepreneurial dreams.</text>
           <text className="theTextForLandingPage" x="60%" y="58%" textAnchor="middle" dominantBaseline="central">Build and maintain your sites with SEO in mind.</text>
