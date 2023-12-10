@@ -4,9 +4,10 @@ import { Fragment } from "react"
 export default function Landing(){
 
     return(
-        <div>
-            
 
+
+        <div className="landingContainer">
+            <div id="gradient-overlay"></div>
 
             <video loop  muted autoPlay id="bg-video" src='/public/VideoForImpresariov2.mp4'>
               <source src='/public/BackgroundImageForTitleImpresario.mp4' />
@@ -32,16 +33,10 @@ export default function Landing(){
       <button className='findOutMoreButton'>Build Now</button>
       </Link>
 
-
-
-
-
-
-
+      </div>
 
 
       
-        </div>
     )
 }
 
